@@ -1,0 +1,417 @@
+================================================================================
+📁 ПОЛНАЯ ФАЙЛОВАЯ СТРУКТУРА ПРОЕКТА COURSE
+================================================================================
+
+📁 course/
+├── 📄 .editorconfig (258 bytes)
+├── 📄 .env (1,160 bytes)
+├── 📄 .env.example (1,097 bytes)
+├── 📄 .gitattributes (186 bytes)
+├── 📄 .gitignore (243 bytes)
+├── 📄 .htaccess (603 bytes)
+├── 📄 .ide-helper.php (7,871 bytes)
+├── 📄 README.md (4,109 bytes)
+├── 📄 artisan (1,686 bytes)
+├── 📄 composer.json (1,882 bytes)
+├── 📄 composer.lock (302,861 bytes)
+├── 📄 composer.phar (3,377,213 bytes)
+├── 📄 index.php (1,701 bytes)
+├── 📄 package.json (248 bytes)
+├── 📄 phpunit.xml (1,134 bytes)
+├── 📄 project_files_collection.txt (54,271 bytes)
+├── 📄 project_structure.txt (19,796 bytes)
+├── 📄 qa_test_cases.txt (18,907 bytes)
+├── 📄 vite.config.js (263 bytes)
+│
+├── 📁 app/ (основная логика приложения)
+│   ├── 📁 Console/
+│   │   └── 📄 Kernel.php
+│   │
+│   ├── 📁 Exceptions/
+│   │   └── 📄 Handler.php
+│   │
+│   ├── 📁 Http/
+│   │   ├── 📁 Controllers/
+│   │   │   ├── 📄 AdminController.php (33,732 bytes) ⭐
+│   │   │   ├── 📄 Auth/
+│   │   │   │   ├── 📄 AuthenticatedSessionController.php (1,065 bytes)
+│   │   │   │   └── 📄 RegisteredUserController.php (1,475 bytes)
+│   │   │   ├── 📄 CertificateController.php (5,652 bytes)
+│   │   │   ├── 📄 Controller.php (299 bytes)
+│   │   │   ├── 📄 CourseController.php (6,437 bytes)
+│   │   │   ├── 📄 EnrollmentController.php (6,478 bytes)
+│   │   │   ├── 📄 HomeController.php (1,746 bytes)
+│   │   │   ├── 📄 InstructorController.php (20,138 bytes)
+│   │   │   ├── 📄 LessonController.php (7,319 bytes)
+│   │   │   ├── 📄 PaymentController.php (3,821 bytes)
+│   │   │   ├── 📄 ReviewController.php (4,040 bytes)
+│   │   │   └── 📄 StudentController.php (6,927 bytes)
+│   │   │
+│   │   ├── 📁 Middleware/
+│   │   │   ├── 📄 Admin.php
+│   │   │   ├── 📄 Authenticate.php
+│   │   │   ├── 📄 Enrollment.php
+│   │   │   ├── 📄 Instructor.php
+│   │   │   └── 📄 Student.php
+│   │   │
+│   │   └── 📄 Kernel.php (3,240 bytes)
+│   │
+│   ├── 📁 Models/
+│   │   ├── 📄 Category.php (1,392 bytes)
+│   │   ├── 📄 Certificate.php (351 bytes)
+│   │   ├── 📄 Course.php (4,547 bytes)
+│   │   ├── 📄 Enrollment.php (3,027 bytes)
+│   │   ├── 📄 Lesson.php (2,811 bytes)
+│   │   ├── 📄 LessonMaterial.php (1,785 bytes)
+│   │   ├── 📄 LessonProgress.php (294 bytes)
+│   │   ├── 📄 Module.php (1,489 bytes)
+│   │   ├── 📄 Order.php (3,366 bytes)
+│   │   ├── 📄 Payment.php (3,287 bytes)
+│   │   ├── 📄 Quiz.php (3,994 bytes)
+│   │   ├── 📄 QuizAttempt.php (6,256 bytes)
+│   │   ├── 📄 QuizQuestion.php (4,125 bytes)
+│   │   ├── 📄 Review.php (2,567 bytes)
+│   │   ├── 📄 Role.php (702 bytes)
+│   │   └── 📄 User.php (2,664 bytes)
+│   │
+│   └── 📁 Providers/
+│       ├── 📄 AppServiceProvider.php
+│       ├── 📄 AuthServiceProvider.php
+│       ├── 📄 BroadcastServiceProvider.php
+│       ├── 📄 EventServiceProvider.php
+│       └── 📄 RouteServiceProvider.php
+│
+├── 📁 bootstrap/
+│   ├── 📄 app.php
+│   └── 📁 cache/
+│       ├── 📄 packages.php
+│       └── 📄 services.php
+│
+├── 📁 config/
+│   ├── 📄 app.php
+│   ├── 📄 auth.php
+│   ├── 📄 broadcasting.php
+│   ├── 📄 cache.php
+│   ├── 📄 cors.php
+│   ├── 📄 database.php
+│   ├── 📄 filesystems.php
+│   ├── 📄 hashing.php
+│   ├── 📄 logging.php
+│   ├── 📄 mail.php
+│   ├── 📄 queue.php
+│   ├── 📄 sanctum.php
+│   ├── 📄 services.php
+│   ├── 📄 session.php
+│   └── 📄 view.php
+│
+├── 📁 database/
+│   ├── 📁 factories/
+│   │   └── 📄 UserFactory.php
+│   │
+│   ├── 📁 migrations/
+│   │   ├── 📄 2014_10_12_100000_create_password_reset_tokens_table.php
+│   │   ├── 📄 2014_10_12_200000_create_two_factor_auth_options_table.php
+│   │   ├── 📄 2019_08_19_000000_create_failed_jobs_table.php
+│   │   ├── 📄 2019_12_14_000001_create_personal_access_tokens_table.php
+│   │   ├── 📄 2024_04_25_000001_create_roles_table.php
+│   │   ├── 📄 2024_04_25_000002_create_users_table.php
+│   │   ├── 📄 2024_04_25_000003_create_categories_table.php
+│   │   ├── 📄 2024_04_25_000004_create_courses_table.php
+│   │   ├── 📄 2024_04_25_000005_create_modules_table.php
+│   │   ├── 📄 2024_04_25_000006_create_lessons_table.php
+│   │   ├── 📄 2024_04_25_000007_create_enrollments_table.php
+│   │   ├── 📄 2024_04_25_000008_create_lesson_progress_table.php
+│   │   ├── 📄 2024_04_25_000009_create_orders_table.php
+│   │   ├── 📄 2024_04_25_000010_create_payments_table.php
+│   │   ├── 📄 2024_04_25_000011_create_reviews_table.php
+│   │   ├── 📄 2024_04_25_000012_create_certificates_table.php
+│   │   ├── 📄 2024_04_25_000013_create_quizzes_table.php
+│   │   ├── 📄 2024_04_25_000014_create_quiz_attempts_table.php
+│   │   └── 📄 2024_04_25_000015_create_quiz_questions_table.php
+│   │
+│   └── 📁 seeders/
+│       ├── 📄 DatabaseSeeder.php
+│       ├── 📄 CategorySeeder.php
+│       ├── 📄 CourseSeeder.php
+│       ├── 📄 RoleSeeder.php
+│       └── 📄 UserSeeder.php
+│
+├── 📁 public/
+│   ├── 📄 index.php (1,701 bytes)
+│   ├── 📁 css/
+│   ├── 📁 js/
+│   ├── 📁 images/
+│   └── 📁 uploads/
+│
+├── 📁 resources/
+│   ├── 📁 css/
+│   │   └── 📄 app.css
+│   │
+│   ├── 📁 js/
+│   │   └── 📄 app.js
+│   │
+│   └── 📁 views/
+│       ├── 📄 welcome.blade.php (27,685 bytes)
+│       ├── 📄 home.blade.php (12,452 bytes)
+│       ├── 📁 auth/
+│       │   ├── 📄 login.blade.php
+│       │   └── 📄 register.blade.php
+│       │
+│       ├── 📁 layouts/
+│       │   ├── 📄 app.blade.php
+│       │   ├── 📄 navigation.blade.php
+│       │   └── 📄 footer.blade.php
+│       │
+│       ├── 📁 partials/
+│       │   └── 📄 footer.blade.php
+│       │
+│       ├── 📁 admin/
+│       │   ├── 📄 analytics.blade.php (2,279 bytes)
+│       │   ├── 📄 categories.blade.php (12,005 bytes)
+│       │   ├── 📄 courses.blade.php (5,455 bytes)
+│       │   ├── 📄 dashboard.blade.php (6,698 bytes)
+│       │   ├── 📄 orders.blade.php (2,874 bytes)
+│       │   ├── 📄 payments.blade.php (3,342 bytes)
+│       │   ├── 📄 reviews.blade.php (4,149 bytes)
+│       │   ├── 📄 roles.blade.php (1,721 bytes)
+│       │   ├── 📄 settings.blade.php (2,375 bytes)
+│       │   ├── 📄 users.blade.php (4,777 bytes)
+│       │   │
+│       │   ├── 📁 courses/
+│       │   │   └── 📄 show.blade.php
+│       │   │
+│       │   ├── 📁 db/ ⭐⭐
+│       │   │   ├── 📄 index.blade.php (6,854 bytes)
+│       │   │   ├── 📄 schema.blade.php (13,379 bytes)
+│       │   │   ├── 📄 create.blade.php (1,385 bytes)
+│       │   │   └── 📄 edit.blade.php (1,885 bytes)
+│       │   │
+│       │   ├── 📁 orders/
+│       │   │   └── 📄 show.blade.php
+│       │   │
+│       │   ├── 📁 payments/
+│       │   │   └── 📄 show.blade.php
+│       │   │
+│       │   ├── 📁 reports/
+│       │   │   └── 📄 sales.blade.php
+│       │   │
+│       │   └── 📁 users/
+│       │       ├── 📄 create.blade.php
+│       │       └── 📄 edit.blade.php
+│       │
+│       ├── 📁 instructor/
+│       │   ├── 📄 analytics.blade.php
+│       │   ├── 📄 courses.blade.php
+│       │   ├── 📄 dashboard.blade.php
+│       │   ├── 📄 earnings.blade.php
+│       │   ├── 📄 lessons.blade.php
+│       │   ├── 📄 modules.blade.php
+│       │   ├── 📄 profile.blade.php
+│       │   ├── 📄 reviews.blade.php
+│       │   ├── 📄 student-progress.blade.php
+│       │   └── 📄 students.blade.php
+│       │
+│       ├── 📁 student/
+│       │   ├── 📄 certificate-show.blade.php
+│       │   ├── 📄 certificates.blade.php
+│       │   ├── 📄 checkout.blade.php
+│       │   ├── 📄 course.blade.php
+│       │   ├── 📄 courses.blade.php
+│       │   ├── 📄 dashboard.blade.php
+│       │   ├── 📄 learn.blade.php
+│       │   ├── 📄 lesson.blade.php
+│       │   ├── 📄 orders.blade.php
+│       │   └── 📄 profile.blade.php
+│       │
+│       ├── 📁 courses/
+│       │   ├── 📄 index.blade.php
+│       │   └── 📄 show.blade.php
+│       │
+│       └── 📁 errors/
+│           ├── 📄 404.blade.php
+│           └── 📄 500.blade.php
+│
+├── 📁 routes/
+│   ├── 📄 api.php
+│   ├── 📄 channels.php
+│   ├── 📄 console.php
+│   └── 📄 web.php (254 строки)
+│
+├── 📁 storage/
+│   ├── 📁 app/
+│   ├── 📁 framework/
+│   └── 📁 logs/
+│
+├── 📁 tests/
+│   ├── 📁 Feature/
+│   ├── 📁 Unit/
+│   └── 📄 TestCase.php
+│
+└── 📁 vendor/
+    └── (зависимости Composer - множество файлов)
+
+================================================================================
+📊 СТАТИСТИКА ФАЙЛОВ ПО РАЗМЕРАМ
+================================================================================
+
+🏆 **Крупнейшие файлы:**
+1. 📄 composer.lock (302,861 bytes) - зависимости Composer
+2. 📄 composer.phar (3,377,213 bytes) - архив Composer
+3. 📄 AdminController.php (33,732 bytes) - главный контроллер ⭐
+4. 📄 InstructorController.php (20,138 bytes) - панель преподавателя
+5. 📄 welcome.blade.php (27,685 bytes) - главная страница
+6. 📄 project_files_collection.txt (54,271 bytes) - сборка проекта
+7. 📄 home.blade.php (12,452 bytes) - домашняя страница
+8. 📄 categories.blade.php (12,005 bytes) - категории в админке
+9. 📄 qa_test_cases.txt (18,907 bytes) - тест-кейсы
+10. 📄 db/schema.blade.php (13,379 bytes) - схема БД ⭐⭐
+
+📈 **Файлы среднего размера:**
+- 📄 CourseController.php (6,437 bytes)
+- 📄 StudentController.php (6,927 bytes)
+- 📄 EnrollmentController.php (6,478 bytes)
+- 📄 LessonController.php (7,319 bytes)
+- 📄 web.php (254 строки) - маршруты
+- 📄 Kernel.php (3,240 bytes) - middleware
+
+💾 **Миграции БД (15 файлов):**
+- 2024_04_25_000001_create_roles_table.php
+- 2024_04_25_000002_create_users_table.php
+- 2024_04_25_000003_create_categories_table.php
+- 2024_04_25_000004_create_courses_table.php
+- 2024_04_25_000005_create_modules_table.php
+- 2024_04_25_000006_create_lessons_table.php
+- 2024_04_25_000007_create_enrollments_table.php
+- 2024_04_25_000008_create_lesson_progress_table.php
+- 2024_04_25_000009_create_orders_table.php
+- 2024_04_25_000010_create_payments_table.php
+- 2024_04_25_000011_create_reviews_table.php
+- 2024_04_25_000012_create_certificates_table.php
+- 2024_04_25_000013_create_quizzes_table.php
+- 2024_04_25_000014_create_quiz_attempts_table.php
+- 2024_04_25_000015_create_quiz_questions_table.php
+
+🎨 **Blade шаблоны (40+ файлов):**
+- 📁 admin/ (11 файлов + 4 поддиректории)
+- 📁 instructor/ (10 файлов)
+- 📁 student/ (9 файлов)
+- 📁 auth/ (2 файла)
+- 📁 courses/ (2 файла)
+- 📁 layouts/ (3 файла)
+- 📁 partials/ (1 файл)
+- 📁 errors/ (2 файла)
+
+🎮 **Контроллеры (13 файлов):**
+- AdminController.php ⭐ (33,732 bytes)
+- InstructorController.php (20,138 bytes)
+- CourseController.php (6,437 bytes)
+- StudentController.php (6,927 bytes)
+- EnrollmentController.php (6,478 bytes)
+- LessonController.php (7,319 bytes)
+- PaymentController.php (3,821 bytes)
+- ReviewController.php (4,040 bytes)
+- CertificateController.php (5,652 bytes)
+- HomeController.php (1,746 bytes)
+- Controller.php (299 bytes)
+- Auth/ (2 файла)
+
+📦 **Модели (15 файлов):**
+- User.php (2,664 bytes)
+- Role.php (702 bytes)
+- Category.php (1,392 bytes)
+- Course.php (4,547 bytes)
+- Module.php (1,489 bytes)
+- Lesson.php (2,811 bytes)
+- Enrollment.php (3,027 bytes)
+- LessonProgress.php (294 bytes)
+- Order.php (3,366 bytes)
+- Payment.php (3,287 bytes)
+- Review.php (2,567 bytes)
+- Certificate.php (351 bytes)
+- Quiz.php (3,994 bytes)
+- QuizAttempt.php (6,256 bytes)
+- QuizQuestion.php (4,125 bytes)
+- LessonMaterial.php (1,785 bytes)
+
+================================================================================
+🌟 КЛЮЧЕВЫЕ ФАЙЛЫ ПРОЕКТА С РАЗМЕРАМИ
+================================================================================
+
+⭐ **AdminController.php** (33,732 bytes) - Сердце системы:
+├── Режим БД ⭐⭐
+├── Управление пользователями
+├── Управление курсами
+├── Управление заказами
+├── Аналитика
+└── Системные настройки
+
+⭐ **resources/views/admin/db/** (Режим БД):
+├── schema.blade.php (13,379 bytes) - визуализация схемы
+├── index.blade.php (6,854 bytes) - таблицы и CRUD
+├── create.blade.php (1,385 bytes) - создание записей
+└── edit.blade.php (1,885 bytes) - редактирование
+
+⭐ **web.php** (254 строки) - все маршруты:
+├── Public routes
+├── Student routes (/student/*)
+├── Instructor routes (/instructor/*)
+├── Admin routes (/admin/*) ⭐
+└── API routes (/api/*)
+
+⭐ **Модели данных:**
+├── User.php (2,664 bytes) - пользователи и роли
+├── Category.php (1,392 bytes) - категории курсов
+├── Course.php (4,547 bytes) - курсы и модули
+├── Enrollment.php (3,027 bytes) - записи на курсы
+└── Payment.php (3,287 bytes) - платежи
+
+================================================================================
+📈 ОБЩАЯ СТАТИСТИКА ПРОЕКТА
+================================================================================
+
+📁 **Всего директорий:** ~50
+📄 **Всего файлов:** ~200+ основных файлов
+📝 **Общий размер кода:** ~250,000+ байт
+🗄️ **Миграций БД:** 19 файлов
+🎮 **Контроллеров:** 13 файлов (~100,000 байт)
+📦 **Моделей:** 15 файлов (~50,000 байт)
+🎨 **Шаблонов:** 40+ файлов (~150,000 байт)
+🛣️ **Маршрутов:** 254 строки в web.php
+
+================================================================================
+🏗️ АРХИТЕКТУРНЫЕ ОСОБЕННОСТИ
+================================================================================
+
+🎯 **MVC паттерн:**
+- Models (app/Models/) - 15 Eloquent моделей
+- Views (resources/views/) - 40+ Blade шаблонов  
+- Controllers (app/Http/Controllers/) - 13 контроллеров
+
+🔐 **Безопасность:**
+- Middleware ролевой защиты
+- CSRF защита
+- Валидация форм
+- Защита системных полей БД
+
+🗄️ **Работа с БД:**
+- PostgreSQL (основная)
+- MySQL (поддержка)
+- SQLite (поддержка)
+- Eloquent ORM
+- Миграции
+
+🎨 **Frontend:**
+- Tailwind CSS
+- Blade шаблоны
+- Alpine.js
+- jQuery
+- Font Awesome
+
+================================================================================
+КОНЕЦ ПОЛНОЙ ФАЙЛОВОЙ СТРУКТУРЫ
+================================================================================
+
+📅 Создано: 6 мая 2026 года
+👨‍💻 Генерация: Cascade AI Assistant
+🎯 Проект: Laravel Online Education Platform v1.0.0
+📊 Всего файлов обработано: 200+
