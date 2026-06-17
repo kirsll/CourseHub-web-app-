@@ -19,30 +19,29 @@
 
 ## 📸 Галерея интерфейсов
 
-### Дашборд студента и Плеер курса
+### Главная страница каталога курсов
 <p align="center">
-  <img src=".github/images/image2.png" width="48%" alt="Дашборд студента" />
-  <img src=".github/images/image3.png" width="48%" alt="Плеер курса" />
+  <img src=".github/images/im1.png" width="100%" alt="Главная страница каталога курсов(шапка)" />
+  <img src=".github/images/im2.png" width="48%" alt="Главная страница каталога курсов (секция популярные курсы)" />
+  <img src=".github/images/im3.png" width="48%" alt="Главная страница каталога курсов (секция категории)" />
+  <img src=".github/images/im4.png" width="48%" alt="Главная страница каталога курсов (секция преподаватели)" />
+  <img src=".github/images/im5.png" width="48%" alt="Главная страница каталога курсов (подвал)" />
 </p>
 
-### Дашборд преподавателя и Аналитика
+### Панель управления администратора
+Панель управления администратора предоставляет доступ к агрегированной статистике системы и управлению пользователями.
 <p align="center">
-  <img src=".github/images/image4.png" width="48%" alt="Дашборд преподавателя" />
-  <img src=".github/images/image5.png" width="48%" alt="Аналитика доходов" />
+  <img src=".github/images/im6.png" width="48%" alt="Дашборд администратора" />
+  <img src=".github/images/im7.png" width="48%" alt="Дашборд администратора (скриншот 2)" />
 </p>
 
-### Десктопное приложение и Дополнительные экраны
+### Режим Базы Данных (БД)
+Раздел «Режим БД» спроектирован в виде строгих табличных пространств. Администратор может визуально отследить связи (Primary Key, Foreign Key), а также использовать пояснительную памятку.
 <p align="center">
-  <img src=".github/images/image6.png" width="48%" alt="Десктопное приложение" />
-  <img src=".github/images/image7.png" width="48%" alt="Дополнительный экран" />
-</p>
-
-### Прочие интерфейсы платформы
-<p align="center">
-  <img src=".github/images/image8.png" width="48%" alt="Интерфейс 1" />
-  <img src=".github/images/image9.png" width="48%" alt="Интерфейс 2" />
-  <img src=".github/images/image10.png" width="48%" alt="Интерфейс 3" />
-  <img src=".github/images/image11.png" width="48%" alt="Интерфейс 4" />
+  <img src=".github/images/im8.png" width="48%" alt="Режим БД: просмотр содержимого таблиц" />
+  <img src=".github/images/im9.png" width="48%" alt="Режим БД: форма редактирования записи" />
+  <img src=".github/images/im10.png" width="48%" alt="Режим БД: визуализация схемы базы данных" />
+  <img src=".github/images/im11.png" width="48%" alt="Режим БД: Пояснительная памятка" />
 </p>
 
 ---
