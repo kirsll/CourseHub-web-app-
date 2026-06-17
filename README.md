@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/instructor_dashboard.png" width="80%" alt="Главная страница" />
+  <img src=".github/images/image1.png" width="80%" alt="Главная страница" />
 </p>
 
 ## ✨ Особенности
@@ -19,19 +19,30 @@
 
 ## 📸 Галерея интерфейсов
 
-### Панель преподавателя
+### Дашборд студента и Плеер курса
 <p align="center">
-  <img src="docs/images/instructor_dashboard.png" width="90%" alt="Дашборд преподавателя" />
+  <img src=".github/images/image2.png" width="48%" alt="Дашборд студента" />
+  <img src=".github/images/image3.png" width="48%" alt="Плеер курса" />
 </p>
 
-### Финансовая аналитика (Доходы)
+### Дашборд преподавателя и Аналитика
 <p align="center">
-  <img src="docs/images/income.png" width="90%" alt="Статистика доходов" />
+  <img src=".github/images/image4.png" width="48%" alt="Дашборд преподавателя" />
+  <img src=".github/images/image5.png" width="48%" alt="Аналитика доходов" />
 </p>
 
-### Популярные курсы
+### Десктопное приложение и Дополнительные экраны
 <p align="center">
-  <img src="docs/images/popular.png" width="90%" alt="Каталог курсов" />
+  <img src=".github/images/image6.png" width="48%" alt="Десктопное приложение" />
+  <img src=".github/images/image7.png" width="48%" alt="Дополнительный экран" />
+</p>
+
+### Прочие интерфейсы платформы
+<p align="center">
+  <img src=".github/images/image8.png" width="48%" alt="Интерфейс 1" />
+  <img src=".github/images/image9.png" width="48%" alt="Интерфейс 2" />
+  <img src=".github/images/image10.png" width="48%" alt="Интерфейс 3" />
+  <img src=".github/images/image11.png" width="48%" alt="Интерфейс 4" />
 </p>
 
 ---
