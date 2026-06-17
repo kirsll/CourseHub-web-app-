@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Логотип -->
             <div class="flex items-center">
-                <a href="http://localhost" class="flex-shrink-0 flex items-center">
+                <a href="guest.html" class="flex-shrink-0 flex items-center">
                     <i class="fas fa-graduation-cap text-blue-600 text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-800">CourseHub</span>
                 </a>
@@ -26,23 +26,23 @@
 
             <!-- Основное меню -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="guest.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="catalog.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
                                                         
                                         
-                                            <a href="admin/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                            <a href="admin.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                             Админка
                         </a>
                                                 </div>
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="search" method="GET" class="relative">
+                <form action="/search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -93,20 +93,20 @@
                              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
                             
                             
-                                                            <a href="admin/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                            <a href="admin.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-cog mr-2"></i> Админка
                                 </a>
                             
                             <hr class="my-2">
-                            <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="student_profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-user mr-2"></i> Профиль
                             </a>
-                            <a href="student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-shopping-cart mr-2"></i> Заказы
                             </a>
                             <hr class="my-2">
-                            <form action="logout" method="POST">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <form action="/logout" method="POST">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-sign-out-alt mr-2"></i> Выйти
                                 </button>
                             </form>
@@ -130,16 +130,16 @@
          x-transition:enter-end="opacity-100 transform scale-100"
          class="md:hidden bg-white border-t">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="guest.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="catalog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
                                             
                                 
-                                    <a href="admin/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                                    <a href="admin.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                         Админка
                     </a>
                                     </div>
@@ -164,7 +164,7 @@
         <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="flex items-center justify-between mb-6">
         <h1 class="text-2xl font-bold text-gray-900">Пользователи</h1>
-        <a href="admin/users/create" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
             Добавить пользователя
         </a>
     </div>
@@ -193,8 +193,8 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <form action="admin/users/3/role" method="POST" class="flex items-center gap-2">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <form action="/admin/users/3/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                                                             <option value="1" >
                                             Администратор
                                         </option>
@@ -212,9 +212,9 @@
                                                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
                                                     </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                            <a href="admin/users/3/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
-                            <form action="admin/users/3" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="/admin/users/3" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -231,8 +231,8 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <form action="admin/users/1/role" method="POST" class="flex items-center gap-2">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <form action="/admin/users/1/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                                                             <option value="1" selected>
                                             Администратор
                                         </option>
@@ -250,9 +250,9 @@
                                                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
                                                     </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                            <a href="admin/users/1/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
-                            <form action="admin/users/1" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="/admin/users/1" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -269,8 +269,8 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <form action="admin/users/2/role" method="POST" class="flex items-center gap-2">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                            <form action="/admin/users/2/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
                                                                             <option value="1" >
                                             Администратор
                                         </option>
@@ -288,9 +288,9 @@
                                                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
                                                     </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
-                            <a href="admin/users/2/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
-                            <form action="admin/users/2" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="/admin/users/2" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -337,7 +337,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="catalog.html" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -387,7 +387,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>

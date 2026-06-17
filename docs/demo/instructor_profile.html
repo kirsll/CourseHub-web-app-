@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Логотип -->
             <div class="flex items-center">
-                <a href="http://localhost" class="flex-shrink-0 flex items-center">
+                <a href="guest.html" class="flex-shrink-0 flex items-center">
                     <i class="fas fa-graduation-cap text-blue-600 text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-800">CourseHub</span>
                 </a>
@@ -26,15 +26,15 @@
 
             <!-- Основное меню -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="guest.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="catalog.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
                                                         
-                                            <a href="instructor/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                            <a href="instructor.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                             Преподавателю
                         </a>
                                         
@@ -42,7 +42,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="search" method="GET" class="relative">
+                <form action="/search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -92,27 +92,27 @@
                              x-transition:enter-end="opacity-100 transform scale-100"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
                             
-                                                            <a href="instructor/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                            <a href="instructor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
                                 </a>
-                                <a href="instructor/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="instructor_courses.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-book mr-2"></i> Мои курсы
                                 </a>
-                                <a href="instructor/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-chart-line mr-2"></i> Аналитика
                                 </a>
                             
                             
                             <hr class="my-2">
-                            <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="student_profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-user mr-2"></i> Профиль
                             </a>
-                            <a href="student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-shopping-cart mr-2"></i> Заказы
                             </a>
                             <hr class="my-2">
-                            <form action="logout" method="POST">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <form action="/logout" method="POST">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-sign-out-alt mr-2"></i> Выйти
                                 </button>
                             </form>
@@ -136,15 +136,15 @@
          x-transition:enter-end="opacity-100 transform scale-100"
          class="md:hidden bg-white border-t">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="guest.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="catalog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
                                             
-                                    <a href="instructor/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                                    <a href="instructor.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                         Преподавателю
                     </a>
                                 
@@ -179,8 +179,8 @@
             <div class="bg-white rounded-lg shadow p-6">
                 <h2 class="text-xl font-semibold text-gray-900 mb-6">Личная информация</h2>
                 
-                <form action="instructor/profile" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                    <input type="hidden" name="_method" value="PUT">                    
+                <form action="/instructor/profile" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                    <input type="hidden" name="_method" value="PUT">                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">
@@ -282,19 +282,19 @@
             <div class="bg-white rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Быстрые ссылки</h3>
                 <div class="space-y-2">
-                    <a href="instructor/dashboard" 
+                    <a href="instructor.html" 
                        class="block text-blue-600 hover:text-blue-800">
                         <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
                     </a>
-                    <a href="instructor/courses" 
+                    <a href="instructor_courses.html" 
                        class="block text-blue-600 hover:text-blue-800">
                         <i class="fas fa-book mr-2"></i> Мои курсы
                     </a>
-                    <a href="instructor/analytics" 
+                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                        class="block text-blue-600 hover:text-blue-800">
                         <i class="fas fa-chart-line mr-2"></i> Аналитика
                     </a>
-                    <a href="instructor/earnings" 
+                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                        class="block text-blue-600 hover:text-blue-800">
                         <i class="fas fa-ruble-sign mr-2"></i> Доходы
                     </a>
@@ -357,7 +357,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="catalog.html" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -407,7 +407,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>

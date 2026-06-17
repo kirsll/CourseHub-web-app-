@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Логотип -->
             <div class="flex items-center">
-                <a href="http://localhost" class="flex-shrink-0 flex items-center">
+                <a href="guest.html" class="flex-shrink-0 flex items-center">
                     <i class="fas fa-graduation-cap text-blue-600 text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-800">CourseHub</span>
                 </a>
@@ -26,10 +26,10 @@
 
             <!-- Основное меню -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="guest.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="catalog.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
@@ -37,7 +37,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="search" method="GET" class="relative">
+                <form action="/search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -48,10 +48,10 @@
 
             <!-- Пользовательское меню -->
             <div class="flex items-center space-x-4">
-                                    <a href="login" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                         Войти
                     </a>
-                    <a href="register" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
                         Регистрация
                     </a>
                             </div>
@@ -72,10 +72,10 @@
          x-transition:enter-end="opacity-100 transform scale-100"
          class="md:hidden bg-white border-t">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="guest.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="catalog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
@@ -111,11 +111,11 @@
         </p>
         
         <div class="flex justify-center space-x-4">
-            <a href="http://localhost" 
+            <a href="guest.html" 
                class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
                 На главную
             </a>
-            <a href="courses" 
+            <a href="catalog.html" 
                class="bg-gray-200 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-300">
                 Каталог курсов
             </a>
@@ -157,7 +157,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="catalog.html" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -207,7 +207,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>

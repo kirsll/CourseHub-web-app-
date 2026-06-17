@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
+    <link href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center h-16">
             <!-- Логотип -->
             <div class="flex items-center">
-                <a href="http://localhost" class="flex-shrink-0 flex items-center">
+                <a href="guest.html" class="flex-shrink-0 flex items-center">
                     <i class="fas fa-graduation-cap text-blue-600 text-2xl mr-2"></i>
                     <span class="text-xl font-bold text-gray-800">CourseHub</span>
                 </a>
@@ -26,15 +26,15 @@
 
             <!-- Основное меню -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="guest.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="catalog.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
                                                         
-                                            <a href="instructor/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                            <a href="instructor.html" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                             Преподавателю
                         </a>
                                         
@@ -42,7 +42,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="search" method="GET" class="relative">
+                <form action="/search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -92,27 +92,27 @@
                              x-transition:enter-end="opacity-100 transform scale-100"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
                             
-                                                            <a href="instructor/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                            <a href="instructor.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
                                 </a>
-                                <a href="instructor/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="instructor_courses.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-book mr-2"></i> Мои курсы
                                 </a>
-                                <a href="instructor/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-chart-line mr-2"></i> Аналитика
                                 </a>
                             
                             
                             <hr class="my-2">
-                            <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="student_profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-user mr-2"></i> Профиль
                             </a>
-                            <a href="student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-shopping-cart mr-2"></i> Заказы
                             </a>
                             <hr class="my-2">
-                            <form action="logout" method="POST">
-                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <form action="/logout" method="POST">
+                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-sign-out-alt mr-2"></i> Выйти
                                 </button>
                             </form>
@@ -136,15 +136,15 @@
          x-transition:enter-end="opacity-100 transform scale-100"
          class="md:hidden bg-white border-t">
         <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="guest.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="catalog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
                                             
-                                    <a href="instructor/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                                    <a href="instructor.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                         Преподавателю
                     </a>
                                 
@@ -173,7 +173,7 @@
             <h1 class="text-3xl font-bold text-gray-900">Мои курсы</h1>
             <p class="text-gray-600 mt-2">Управляйте своими курсами</p>
         </div>
-        <a href="instructor/courses/create" 
+        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
            class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
             <i class="fas fa-plus mr-2"></i>
             Создать курс
@@ -286,7 +286,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/1/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Laravel 10 для начинающих
                         </a>
@@ -324,15 +324,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/1/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/1/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/1/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -358,7 +358,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/2/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             UI/UX Design: от идеи до прототипа
                         </a>
@@ -396,15 +396,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/2/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/2/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/2/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -433,7 +433,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/3/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Профессия Data Scientist с нуля до PRO
                         </a>
@@ -471,15 +471,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/3/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/3/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/3/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -508,7 +508,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/4/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Frontend-разработчик на React и Vue
                         </a>
@@ -546,15 +546,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/4/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/4/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/4/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -580,7 +580,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/9/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Программирование на JavaScript для начинающих
                         </a>
@@ -618,15 +618,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/9/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/9/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/9/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -655,7 +655,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/5/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             DevOps Инженер: CI/CD, Docker и Kubernetes
                         </a>
@@ -693,15 +693,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/5/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/5/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/5/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -727,7 +727,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/6/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Мобильная разработка на Flutter
                         </a>
@@ -765,15 +765,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/6/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/6/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/6/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -802,7 +802,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/7/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Digital Маркетинг и SEO продвижение
                         </a>
@@ -840,15 +840,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/7/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/7/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/7/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -874,7 +874,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/8/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Fullstack разработчик на Python (Django + React)
                         </a>
@@ -912,15 +912,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/8/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/8/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/8/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -949,7 +949,7 @@
                 <!-- Информация о курсе -->
                 <div class="p-4">
                     <h3 class="font-semibold text-gray-900 mb-2">
-                        <a href="instructor/courses/10/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="hover:text-blue-600">
                             Архитектура микросервисов с Docker
                         </a>
@@ -987,15 +987,15 @@
                     
                     <!-- Кнопки действий -->
                     <div class="flex space-x-2">
-                        <a href="instructor/courses/10/edit" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a href="instructor/courses/10/modules" 
+                        <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                            class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
                             <i class="fas fa-th-list"></i>
                         </a>
-                                                    <a href="instructor/courses/10/unpublish" 
+                                                    <a href="javascript:alert('Эта страница недоступна в демо-режиме')" 
                                class="flex-1 bg-yellow-100 text-yellow-700 px-3 py-2 rounded text-sm hover:bg-yellow-200 text-center"
                                onclick="return confirm('Вы уверены, что хотите снять курс с публикации?')">
                                 <i class="fas fa-eye-slash"></i>
@@ -1013,7 +1013,7 @@
                     &laquo; Previous
                 </span>
             
-                            <a href="instructor/courses?page=2" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">
+                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300 dark:focus:border-blue-700 dark:active:bg-gray-700 dark:active:text-gray-300">
                     Next &raquo;
                 </a>
                     </div>
@@ -1049,12 +1049,12 @@
                                                                                                                         <span aria-current="page">
                                         <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600">1</span>
                                     </span>
-                                                                                                                                <a href="instructor/courses?page=2" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 2">
+                                                                                                                                <a href="javascript:alert('Эта страница недоступна в демо-режиме')" class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:text-gray-300 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Go to page 2">
                                         2
                                     </a>
                                                                                                         
                     
-                                            <a href="instructor/courses?page=2" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Next &amp;raquo;">
+                                            <a href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="next" class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150 dark:bg-gray-800 dark:border-gray-600 dark:active:bg-gray-700 dark:focus:border-blue-800" aria-label="Next &amp;raquo;">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                             </svg>
@@ -1101,7 +1101,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="catalog.html" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -1151,7 +1151,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
