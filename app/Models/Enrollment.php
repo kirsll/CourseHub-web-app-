@@ -119,8 +119,37 @@ class Enrollment extends Model
         
         if ($progress >= 100 && !$this->is_completed) {
             $this->completed_at = now();
-        }
+            $this->save(); // Сохраняем, чтобы зафиксировать дату
 
-        $this->save();
+            // Генерируем сертификат автоматически, если его еще нет
+            if (!$this->certificates()->exists()) {
+                $this->loadMissing(['user', 'course.instructor']);
+                
+                $certNumber = \App\Models\Certificate::generateCertificateNumber();
+                $filePath = 'certificates/' . $certNumber . '.pdf';
+                
+                $certificate = \App\Models\Certificate::create([
+                    'user_id' => $this->user_id,
+                    'course_id' => $this->course_id,
+                    'enrollment_id' => $this->id,
+                    'certificate_number' => $certNumber,
+                    'template' => 'default',
+                    'certificate_data' => [
+                        'student_name' => $this->user->full_name,
+                        'course_title' => $this->course->title,
+                        'instructor_name' => $this->course->instructor->full_name,
+                        'completion_date' => $this->completed_at->format('d.m.Y'),
+                        'total_hours' => $this->course->formatted_duration,
+                    ],
+                    'file_path' => $filePath,
+                    'issued_at' => now(),
+                ]);
+                
+                // Создаем файл-заглушку, пока не подключен dompdf
+                \Illuminate\Support\Facades\Storage::disk('public')->put($filePath, 'Certificate placeholder');
+            }
+        } else {
+            $this->save();
+        }
     }
 }

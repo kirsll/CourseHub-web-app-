@@ -80,7 +80,7 @@
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                             @if (auth()->user()->avatar)
-                                <img src="{{ asset('public/storage/' . auth()->user()->avatar) }}" 
+                                <img src="{{ asset('storage/' . auth()->user()->avatar) }}" 
                                      alt="Avatar" class="h-8 w-8 rounded-full">
                             @else
                                 <div class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">

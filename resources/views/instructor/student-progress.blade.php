@@ -21,7 +21,7 @@
     <div class="bg-white rounded-lg shadow p-6 mb-8">
         <div class="flex items-center">
             @if ($student->avatar)
-                <img src="{{ asset('public/storage/' . $student->avatar) }}" 
+                <img src="{{ asset('storage/' . $student->avatar) }}" 
                      alt="{{ $student->full_name }}" 
                      class="h-16 w-16 rounded-full mr-4">
             @else

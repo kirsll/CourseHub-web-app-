@@ -17,3 +17,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/desktop-client/node_modules
+/desktop-client/dist
+/desktop-client/out
+/CourseHub_Ignored_Files
+/dist
+/project

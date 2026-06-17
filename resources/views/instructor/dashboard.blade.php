@@ -78,7 +78,7 @@
                         <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
                                 @if ($course->thumbnail)
-                                    <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                                    <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                                          alt="{{ $course->title }}" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                 @else
@@ -225,7 +225,7 @@
                     @forelse ($recentEnrollments as $enrollment)
                         <div class="flex items-center mb-4">
                             @if ($enrollment->user->avatar)
-                                <img src="{{ asset('public/storage/' . $enrollment->user->avatar) }}" 
+                                <img src="{{ asset('storage/' . $enrollment->user->avatar) }}" 
                                      alt="{{ $enrollment->user->full_name }}" 
                                      class="w-10 h-10 rounded-full mr-3">
                             @else
@@ -241,7 +241,7 @@
                                     {{ $enrollment->course->title }}
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    {{ $enrollment->created_at->diffForHumans() }}
+                                    {{ $enrollment->created_at ? $enrollment->created_at->diffForHumans() : 'Неизвестно' }}
                                 </p>
                             </div>
                         </div>

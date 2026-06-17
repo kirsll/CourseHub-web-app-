@@ -74,7 +74,7 @@
                         <div class="flex items-center space-x-6">
                             <div class="shrink-0">
                                 @if ($instructor->avatar)
-                                    <img src="{{ asset('public/storage/' . $instructor->avatar) }}" 
+                                    <img src="{{ asset('storage/' . $instructor->avatar) }}" 
                                          alt="{{ $instructor->full_name }}" 
                                          class="h-16 w-16 rounded-full object-cover">
                                 @else

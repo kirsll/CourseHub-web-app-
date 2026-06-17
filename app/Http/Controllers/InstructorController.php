@@ -33,12 +33,20 @@ class InstructorController extends Controller
             'total_students' => $courses->sum(function($course) {
                 return $course->enrollments->count();
             }),
-            'total_earnings' => 0, // Заглушка для демонстрации
-            'monthly_earnings' => 0, // Заглушка для демонстрации
+            'total_earnings' => $courses->sum(function($course) {
+                return $course->enrollments->sum('paid_amount');
+            }),
+            'monthly_earnings' => $courses->sum(function($course) {
+                return $course->enrollments->where('created_at', '>=', now()->startOfMonth())->sum('paid_amount');
+            }),
         ];
 
-        $recentCourses = $courses->take(5);
-        $recentEnrollments = collect(); // Заглушка для демонстрации
+        $recentCourses = $courses->sortByDesc('created_at')->take(5);
+        $recentEnrollments = \App\Models\Enrollment::whereIn('course_id', $courses->pluck('id'))
+            ->with(['user', 'course'])
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
 
         return view('instructor.dashboard', compact('stats', 'recentCourses', 'recentEnrollments'));
     }
@@ -94,6 +102,8 @@ class InstructorController extends Controller
             'requirements' => 'nullable|array',
             'what_you_will_learn' => 'nullable|array',
             'target_audience' => 'nullable|array',
+            'additional_categories' => 'nullable|array',
+            'additional_categories.*' => 'exists:categories,id',
         ]);
 
         try {
@@ -111,6 +121,10 @@ class InstructorController extends Controller
                 'what_you_will_learn' => $request->what_you_will_learn,
                 'target_audience' => $request->target_audience,
             ]);
+
+            if ($request->has('additional_categories')) {
+                $course->categories()->sync($request->additional_categories);
+            }
 
             return redirect()->route('instructor.courses')
                 ->with('success', 'Курс создан. Теперь вы можете его редактировать.');
@@ -130,7 +144,7 @@ class InstructorController extends Controller
             abort(403);
         }
 
-        $course->load(['modules.lessons', 'category']);
+        $course->load(['modules.lessons', 'category', 'categories']);
         $categories = Category::where('is_active', true)->get();
 
         return view('instructor.courses.edit', compact('course', 'categories'));
@@ -173,6 +187,8 @@ class InstructorController extends Controller
             'requirements' => 'nullable|array',
             'what_you_will_learn' => 'nullable|array',
             'target_audience' => 'nullable|array',
+            'additional_categories' => 'nullable|array',
+            'additional_categories.*' => 'exists:categories,id',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'preview_video' => 'nullable|string|max:255',
         ]);
@@ -192,8 +208,15 @@ class InstructorController extends Controller
             'preview_video' => $request->preview_video,
         ]);
 
+        if ($request->hasFile('thumbnail')) {
+            $path = $request->file('thumbnail')->store('courses/thumbnails', 'public');
+            $course->update(['thumbnail' => $path]);
+        }
+        
+        $course->categories()->sync($request->additional_categories ?? []);
+
         return redirect()->route('instructor.courses.edit', $course)
-            ->with('success', 'Курс обновлен');
+            ->with('success', 'Курс успешно обновлен.');
     }
 
     public function deleteCourse(Course $course)

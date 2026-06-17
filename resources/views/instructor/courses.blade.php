@@ -106,7 +106,7 @@
                 <!-- Изображение курса -->
                 <div class="relative">
                     @if ($course->thumbnail)
-                        <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                        <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                              alt="{{ $course->title }}" 
                              class="w-full h-48 object-cover rounded-t-lg">
                     @else

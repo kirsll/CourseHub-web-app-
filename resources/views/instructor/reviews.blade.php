@@ -104,7 +104,7 @@
                 <div class="flex items-start justify-between">
                     <div class="flex items-start">
                         @if ($review->user->avatar)
-                            <img src="{{ asset('public/storage/' . $review->user->avatar) }}" 
+                            <img src="{{ asset('storage/' . $review->user->avatar) }}" 
                                  alt="{{ $review->user->full_name }}" 
                                  class="h-12 w-12 rounded-full mr-4">
                         @else

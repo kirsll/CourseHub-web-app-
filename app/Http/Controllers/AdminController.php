@@ -81,6 +81,128 @@ class AdminController extends Controller
             ->all();
     }
 
+    private function getDbFieldDescriptions(string $table): array
+    {
+        // Базовые описания, которые подходят многим таблицам
+        $common = [
+            'is_active' => '1 - Активен, 0 - Неактивен',
+            'is_published' => '1 - Опубликован, 0 - Черновик',
+            'is_featured' => '1 - Рекомендованный, 0 - Обычный',
+            'sort_order' => 'Порядок сортировки (чем меньше число, тем выше)',
+            'slug' => 'ЧПУ (URL-имя), только латиница, цифры и дефис',
+            'user_id' => 'Пользователь, к которому привязана запись',
+            'instructor_id' => 'Преподаватель курса',
+            'category_id' => 'Категория',
+            'course_id' => 'Курс',
+            'module_id' => 'Модуль курса',
+            'lesson_id' => 'Урок',
+            'role_id' => 'Роль пользователя',
+        ];
+
+        // Специфичные для таблиц описания
+        $specific = [];
+        if ($table === 'courses') {
+            $specific = [
+                'level' => 'Уровень сложности',
+                'language' => 'Язык курса (ru/en и т.д.)',
+                'price' => 'Стоимость в рублях',
+                'discount_price' => 'Цена со скидкой (оставьте пустым, если скидки нет)',
+            ];
+        } elseif ($table === 'orders' || $table === 'payments') {
+            $specific = [
+                'status' => 'Текущий статус',
+                'amount' => 'Сумма',
+            ];
+        }
+
+        return array_merge($common, $specific);
+    }
+
+    private function getDbFieldOptions(string $table, array $columns): array
+    {
+        $options = [];
+
+        // Общие булевы значения
+        foreach (['is_active', 'is_published', 'is_featured', 'is_free_preview'] as $boolField) {
+            if (in_array($boolField, $columns, true)) {
+                $options[$boolField] = [0 => 'Нет', 1 => 'Да'];
+            }
+        }
+
+        // Связи (внешние ключи)
+        if (in_array('role_id', $columns, true)) {
+            $options['role_id'] = \App\Models\Role::pluck('name', 'id')->toArray();
+        }
+        if (in_array('user_id', $columns, true) || in_array('instructor_id', $columns, true)) {
+            // Для пользователей берем email как идентификатор для списка
+            $users = \App\Models\User::select('id', 'first_name', 'last_name', 'email')->get()
+                ->mapWithKeys(fn($u) => [$u->id => "{$u->first_name} {$u->last_name} ({$u->email})"])->toArray();
+            
+            if (in_array('user_id', $columns, true)) $options['user_id'] = $users;
+            if (in_array('instructor_id', $columns, true)) $options['instructor_id'] = $users;
+        }
+        if (in_array('category_id', $columns, true) || in_array('parent_id', $columns, true)) {
+            $categories = \App\Models\Category::pluck('name', 'id')->toArray();
+            if (in_array('category_id', $columns, true)) $options['category_id'] = $categories;
+            if (in_array('parent_id', $columns, true)) {
+                $options['parent_id'] = [null => 'Нет (Главная категория)'] + $categories;
+            }
+        }
+        if (in_array('course_id', $columns, true)) {
+            $options['course_id'] = \App\Models\Course::pluck('title', 'id')->toArray();
+        }
+        if (in_array('module_id', $columns, true)) {
+            $options['module_id'] = \Illuminate\Support\Facades\DB::table('modules')->pluck('title', 'id')->toArray();
+        }
+        if (in_array('lesson_id', $columns, true)) {
+            $options['lesson_id'] = \Illuminate\Support\Facades\DB::table('lessons')->pluck('title', 'id')->toArray();
+        }
+        if (in_array('order_id', $columns, true)) {
+            $options['order_id'] = \App\Models\Order::pluck('id', 'id')->toArray();
+        }
+
+        // Enum / статусы
+        if ($table === 'courses' && in_array('level', $columns, true)) {
+            $options['level'] = [
+                'beginner' => 'Начальный',
+                'intermediate' => 'Средний',
+                'advanced' => 'Продвинутый',
+            ];
+        }
+        if ($table === 'courses' && in_array('language', $columns, true)) {
+            $options['language'] = [
+                'ru' => 'Русский',
+                'en' => 'Английский',
+            ];
+        }
+        if ($table === 'lessons' && in_array('type', $columns, true)) {
+            $options['type'] = [
+                'video' => 'Видео',
+                'text' => 'Текст',
+                'quiz' => 'Тест',
+                'document' => 'Документ',
+            ];
+        }
+        if ($table === 'orders' && in_array('status', $columns, true)) {
+            $options['status'] = [
+                'pending' => 'В ожидании',
+                'paid' => 'Оплачен',
+                'cancelled' => 'Отменен',
+                'refunded' => 'Возвращен',
+            ];
+        }
+        if ($table === 'payments' && in_array('status', $columns, true)) {
+            $options['status'] = [
+                'pending' => 'В ожидании',
+                'completed' => 'Завершен',
+                'failed' => 'Ошибка',
+                'refunded' => 'Возвращен',
+            ];
+        }
+
+        return $options;
+    }
+
     private function getDbWritableData(Request $request, string $table): array
     {
         $editable = $this->getDbEditableColumns($table);
@@ -287,8 +409,10 @@ class AdminController extends Controller
         }
 
         $columns = $this->getDbEditableColumns($table);
+        $descriptions = $this->getDbFieldDescriptions($table);
+        $options = $this->getDbFieldOptions($table, $columns);
 
-        return view('admin.db.create', compact('table', 'columns'));
+        return view('admin.db.create', compact('table', 'columns', 'descriptions', 'options'));
     }
 
     public function dbStore(Request $request, string $table)
@@ -320,7 +444,10 @@ class AdminController extends Controller
             abort(404);
         }
 
-        return view('admin.db.edit', compact('table', 'columns', 'row', 'id'));
+        $descriptions = $this->getDbFieldDescriptions($table);
+        $options = $this->getDbFieldOptions($table, $columns);
+
+        return view('admin.db.edit', compact('table', 'columns', 'row', 'id', 'descriptions', 'options'));
     }
 
     public function dbUpdate(Request $request, string $table, int $id)

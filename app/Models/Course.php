@@ -63,8 +63,7 @@ class Course extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class, 'course_category')
-            ->withTimestamps();
+        return $this->belongsToMany(Category::class, 'course_category');
     }
 
     public function modules(): HasMany

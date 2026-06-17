@@ -24,7 +24,7 @@
             </div>
             <div class="text-right">
                 @if ($course->thumbnail)
-                    <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                    <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                          alt="{{ $course->title }}" 
                          class="w-32 h-24 rounded-lg object-cover">
                 @else
@@ -135,7 +135,7 @@
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Преподаватель</h3>
                     <div class="flex items-center mb-4">
                         @if ($course->instructor->avatar)
-                            <img src="{{ asset('public/storage/' . $course->instructor->avatar) }}" 
+                            <img src="{{ asset('storage/' . $course->instructor->avatar) }}" 
                                  alt="{{ $course->instructor->full_name }}" 
                                  class="w-12 h-12 rounded-full mr-3">
                         @else
@@ -237,7 +237,7 @@
                     <div class="border-b pb-4 last:border-0">
                         <div class="flex items-start mb-2">
                             @if ($review->user->avatar)
-                                <img src="{{ asset('public/storage/' . $review->user->avatar) }}" 
+                                <img src="{{ asset('storage/' . $review->user->avatar) }}" 
                                      alt="{{ $review->user->full_name }}" 
                                      class="w-10 h-10 rounded-full mr-3">
                             @else

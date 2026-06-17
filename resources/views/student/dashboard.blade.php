@@ -80,7 +80,7 @@
                         <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
                                 @if ($enrollment->course->thumbnail)
-                                    <img src="{{ asset('public/storage/' . $enrollment->course->thumbnail) }}" 
+                                    <img src="{{ asset('storage/' . $enrollment->course->thumbnail) }}" 
                                          alt="{{ $enrollment->course->title }}" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                 @else
@@ -140,7 +140,7 @@
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center">
                                     @if ($enrollment->course->thumbnail)
-                                        <img src="{{ asset('public/storage/' . $enrollment->course->thumbnail) }}" 
+                                        <img src="{{ asset('storage/' . $enrollment->course->thumbnail) }}" 
                                              alt="{{ $enrollment->course->title }}" 
                                              class="w-12 h-12 rounded-lg mr-3">
                                     @else
@@ -232,7 +232,7 @@
                                     {{ $progress->lesson->course->title }}
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    {{ $progress->last_accessed_at->diffForHumans() }}
+                                    {{ $progress->last_accessed_at ? $progress->last_accessed_at->diffForHumans() : $progress->updated_at->diffForHumans() }}
                                 </p>
                             </div>
                         </div>

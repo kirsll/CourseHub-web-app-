@@ -220,16 +220,16 @@ function markLessonComplete(lessonId) {
     .then(data => {
         if (data.success) {
             if (data.message) {
-                showNotification(data.message, 'success');
+                alert(data.message);
             }
             if (data.next_lesson) {
                 setTimeout(() => {
                     window.location.href = `/student/courses/{{ $lesson->course->id }}/lessons/${data.next_lesson.id}`;
-                }, 1000);
+                }, 100);
             } else {
                 setTimeout(() => {
                     window.location.reload();
-                }, 1000);
+                }, 100);
             }
         } else {
             throw new Error(data.message || 'Failed to complete lesson');
@@ -237,7 +237,7 @@ function markLessonComplete(lessonId) {
     })
     .catch(error => {
         console.error('Error:', error);
-        showNotification('Произошла ошибка при завершении урока', 'error');
+        alert('Произошла ошибка при завершении урока');
     });
 }
 

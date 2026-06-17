@@ -134,7 +134,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     @if ($enrollment->user->avatar)
-                                        <img src="{{ asset('public/storage/' . $enrollment->user->avatar) }}" 
+                                        <img src="{{ asset('storage/' . $enrollment->user->avatar) }}" 
                                              alt="{{ $enrollment->user->full_name }}" 
                                              class="h-10 w-10 rounded-full mr-3">
                                     @else

@@ -39,7 +39,7 @@ return new class extends Migration
             $table->index(['instructor_id', 'is_published']);
             $table->index(['category_id', 'is_published']);
             $table->index(['rating', 'students_count']);
-            $table->fullText(['title', 'description']);
+            // $table->fullText(['title', 'description']); // Not supported by SQLite
         });
     }
 

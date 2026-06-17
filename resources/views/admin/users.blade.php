@@ -27,7 +27,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 @if ($user->avatar)
-                                    <img src="{{ asset('public/storage/' . $user->avatar) }}" alt="{{ $user->full_name }}" class="h-10 w-10 rounded-full object-cover">
+                                    <img src="{{ asset('storage/' . $user->avatar) }}" alt="{{ $user->full_name }}" class="h-10 w-10 rounded-full object-cover">
                                 @else
                                     <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
                                         <i class="fas fa-user text-gray-500"></i>

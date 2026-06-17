@@ -27,7 +27,7 @@ class CourseSeeder extends Seeder
                 'level' => 'beginner',
                 'language' => 'ru',
                 'duration_minutes' => 1200, // 20 часов
-                'thumbnail' => null,
+                'thumbnail' => 'courses/course1.jpg',
                 'preview_video' => null,
                 'requirements' => json_encode([
                     'Базовые знания HTML и CSS',
@@ -66,7 +66,7 @@ class CourseSeeder extends Seeder
                 'level' => 'intermediate',
                 'language' => 'ru',
                 'duration_minutes' => 900, // 15 часов
-                'thumbnail' => null,
+                'thumbnail' => 'courses/course2.jpg',
                 'preview_video' => null,
                 'requirements' => json_encode([
                     'Базовые знания графического дизайна',

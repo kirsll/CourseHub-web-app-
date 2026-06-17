@@ -49,6 +49,31 @@
             </div>
             
             <div class="mt-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Дополнительные категории
+                </label>
+                <div class="border border-gray-300 rounded-lg p-3 max-h-48 overflow-y-auto bg-gray-50">
+                    @php
+                        $selectedCategories = old('additional_categories', $course->categories->pluck('id')->toArray());
+                    @endphp
+                    @foreach ($categories as $category)
+                        <div class="flex items-center mb-2">
+                            <input type="checkbox" id="add_cat_{{ $category->id }}" name="additional_categories[]" value="{{ $category->id }}"
+                                   class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                   {{ in_array($category->id, $selectedCategories) ? 'checked' : '' }}>
+                            <label for="add_cat_{{ $category->id }}" class="ml-2 block text-sm text-gray-900">
+                                {{ $category->name }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                <p class="text-xs text-gray-500 mt-1">Вы можете выбрать несколько дополнительных категорий, если курс подходит под разные тематики.</p>
+                @error('additional_categories')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+            
+            <div class="mt-6">
                 <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
                     Краткое описание *
                 </label>
@@ -84,7 +109,7 @@
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                     @if ($course->thumbnail)
                         <div class="mt-2">
-                            <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                            <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                                  alt="Текущая обложка" 
                                  class="w-32 h-24 object-cover rounded">
                         </div>

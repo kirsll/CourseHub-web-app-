@@ -67,7 +67,7 @@
                 <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition">
                     <div class="relative">
                         @if ($course->thumbnail)
-                            <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                            <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                                  alt="{{ $course->title }}" 
                                  class="w-full h-48 object-cover rounded-t-lg">
                         @else
@@ -188,7 +188,7 @@
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex items-center mb-4">
                         @if ($instructor->avatar)
-                            <img src="{{ asset('public/storage/' . $instructor->avatar) }}" 
+                            <img src="{{ asset('storage/' . $instructor->avatar) }}" 
                                  alt="{{ $instructor->full_name }}" 
                                  class="w-16 h-16 rounded-full mr-4">
                         @else

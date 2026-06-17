@@ -146,7 +146,7 @@
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
                             @if ($course->thumbnail)
-                                <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                                <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                                      alt="{{ $course->title }}" 
                                      class="w-full h-full object-cover">
                             @else
@@ -220,7 +220,7 @@
                             <!-- Преподаватель -->
                             <div class="flex items-center mb-3">
                                 @if ($course->instructor->avatar)
-                                    <img src="{{ asset('public/storage/' . $course->instructor->avatar) }}" 
+                                    <img src="{{ asset('storage/' . $course->instructor->avatar) }}" 
                                          alt="{{ $course->instructor->full_name }}" 
                                          class="w-6 h-6 rounded-full mr-2">
                                 @else

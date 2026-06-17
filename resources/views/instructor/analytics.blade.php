@@ -131,7 +131,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     @if ($course->thumbnail)
-                                        <img src="{{ asset('public/storage/' . $course->thumbnail) }}" 
+                                        <img src="{{ asset('storage/' . $course->thumbnail) }}" 
                                              alt="{{ $course->title }}" 
                                              class="h-10 w-10 rounded-lg mr-3">
                                     @else

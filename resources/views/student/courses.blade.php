@@ -42,7 +42,7 @@
                 <!-- Изображение курса -->
                 <div class="relative">
                     @if ($enrollment->course->thumbnail)
-                        <img src="{{ asset('public/storage/' . $enrollment->course->thumbnail) }}" 
+                        <img src="{{ asset('storage/' . $enrollment->course->thumbnail) }}" 
                              alt="{{ $enrollment->course->title }}" 
                              class="w-full h-48 object-cover rounded-t-lg">
                     @else
@@ -85,7 +85,7 @@
                     <!-- Преподаватель -->
                     <div class="flex items-center mb-3">
                         @if ($enrollment->course->instructor->avatar)
-                            <img src="{{ asset('public/storage/' . $enrollment->course->instructor->avatar) }}" 
+                            <img src="{{ asset('storage/' . $enrollment->course->instructor->avatar) }}" 
                                  alt="{{ $enrollment->course->instructor->full_name }}" 
                                  class="w-6 h-6 rounded-full mr-2">
                         @else

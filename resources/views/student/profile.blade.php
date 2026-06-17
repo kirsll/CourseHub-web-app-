@@ -24,7 +24,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Фото профиля</label>
                         <div class="flex items-center space-x-4">
                             @if ($student->avatar)
-                                <img src="{{ asset('public/storage/' . $student->avatar) }}" 
+                                <img src="{{ asset('storage/' . $student->avatar) }}" 
                                      alt="{{ $student->full_name }}" 
                                      class="w-20 h-20 rounded-full object-cover">
                             @else
