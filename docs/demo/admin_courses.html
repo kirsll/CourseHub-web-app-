@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="javascript:alert('Эта страница недоступна в демо-режиме')" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -42,7 +42,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="/search" method="GET" class="relative">
+                <form action="javascript:alert('Отправка форм отключена')" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -105,8 +105,8 @@
                                 <i class="fas fa-shopping-cart mr-2"></i> Заказы
                             </a>
                             <hr class="my-2">
-                            <form action="/logout" method="POST">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-sign-out-alt mr-2"></i> Выйти
                                 </button>
                             </form>
@@ -200,8 +200,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/1/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -221,8 +221,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/1" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -247,8 +247,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/2/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -268,8 +268,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/2" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -295,8 +295,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/3/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -316,8 +316,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/3" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -343,8 +343,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/4/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -364,8 +364,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/4" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -390,8 +390,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/9/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -411,8 +411,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/9" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -438,8 +438,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/5/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -459,8 +459,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/5" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -485,8 +485,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/6/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -506,8 +506,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/6" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -533,8 +533,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/7/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -554,8 +554,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/7" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -580,8 +580,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/8/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -601,8 +601,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/8" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -628,8 +628,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/10/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -649,8 +649,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/10" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -675,8 +675,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/11/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -696,8 +696,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/11" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -723,8 +723,8 @@
                             <details class="inline-block text-left ml-4">
                                 <summary class="cursor-pointer text-gray-700 hover:text-gray-900">Статус</summary>
                                 <div class="mt-2 p-4 bg-gray-50 border rounded-lg w-72">
-                                    <form action="/admin/courses/12/status" method="POST" class="space-y-3">
-                                        <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
+                                    <form action="javascript:alert('Отправка форм отключена')" method="POST" class="space-y-3">
+                                        <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                        <input type="hidden" name="_method" value="PUT">
                                         <label class="flex items-center justify-between text-sm">
                                             <span>Опубликован</span>
                                             <input type="hidden" name="is_published" value="0">
@@ -744,8 +744,8 @@
                                 </div>
                             </details>
 
-                            <form action="/admin/courses/12" method="POST" class="inline">
-                                <input type="hidden" name="_token" value="uAO2Ka1uu86e2z8Ntm5PXB5QyU4oxicXK8pOKYuk" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
+                            <form action="javascript:alert('Отправка форм отключена')" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="Pi8aprhqxJLO4UVpb8A0ARvdcMLsA3zuHLDavYBM" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800 ml-4" onclick="return confirm('Удалить курс?')">Удалить</button>
                             </form>
                         </td>
                     </tr>
@@ -842,7 +842,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="/js/app.js"></script>
+    <script src="js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>

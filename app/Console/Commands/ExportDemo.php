@@ -73,28 +73,34 @@ class ExportDemo extends Command
             $response = $kernel->handle($request);
             $content = $response->getContent();
             
-            // Normalize all localhost/127.0.0.1 URLs to absolute paths starting with /
+            // Normalize all localhost URLs to absolute paths
             $content = str_replace(['http://127.0.0.1:8000', 'http://localhost'], '', $content);
-            
-            // Now a href like href="http://localhost/student" is href="/student".
-            // However href="http://localhost" is href="". We must fix href="" to href="/".
             $content = str_replace('href=""', 'href="/"', $content);
 
-            // Rewrite standard asset paths
+            // Fix Asset Paths to be relative
             $content = str_replace('href="/build/', 'href="build/', $content);
             $content = str_replace('src="/build/', 'src="build/', $content);
             $content = str_replace('href="/storage/', 'href="storage/', $content);
             $content = str_replace('src="/storage/', 'src="storage/', $content);
+            
+            // Fix any other leading slash assets
+            $content = str_replace('href="/css/', 'href="css/', $content);
+            $content = str_replace('src="/js/', 'src="js/', $content);
+            $content = str_replace('src="/images/', 'src="images/', $content);
 
-            // Dynamic route rewriting
+            // Dynamic route rewriting (ONLY FOR A TAGS)
             foreach ($routes as $r) {
-                // Ensure we replace exact matches. E.g. url "/" -> href="/"
+                // E.g. replace href="/" with href="guest.html"
                 $pattern = '/href="\/'.preg_quote(ltrim($r['url'], '/'), '/').'"/';
                 $content = preg_replace($pattern, 'href="'.$r['file'].'"', $content);
             }
             
-            // Fallback for any other unmapped internal links
-            $content = preg_replace('/href="\/(?!build|storage)[^"]*"/', 'href="javascript:alert(\'Эта страница недоступна в демо-режиме\')"', $content);
+            // Fallback for any other unmapped internal links in A tags
+            // We match <a ... href="/something" ... >
+            $content = preg_replace('/<a\s+([^>]*?)href="\/(?!build|storage)[^"]*"([^>]*?)>/i', '<a $1href="javascript:alert(\'Эта страница недоступна в демо-режиме\')"$2>', $content);
+            
+            // Disable all form actions
+            $content = preg_replace('/action="[^"]*"/', 'action="javascript:alert(\'Отправка форм отключена\')"', $content);
             
             $bar = "
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
