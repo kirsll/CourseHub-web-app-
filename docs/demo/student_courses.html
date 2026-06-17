@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои курсы - CourseHub</title>
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    
+    </head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Навигация -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+            <!-- Логотип -->
+            <div class="flex items-center">
+                <a href="http://localhost" class="flex-shrink-0 flex items-center">
+                    <i class="fas fa-graduation-cap text-blue-600 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-gray-800">CourseHub</span>
+                </a>
+            </div>
+
+            <!-- Основное меню -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                    Главная
+                </a>
+                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                    Курсы
+                </a>
+                
+                                                            <a href="student/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                            Мои курсы
+                        </a>
+                                        
+                                        
+                                                </div>
+
+            <!-- Поиск -->
+            <div class="hidden md:flex items-center">
+                <form action="search" method="GET" class="relative">
+                    <input type="text" name="q" placeholder="Поиск курсов..." 
+                           class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                    <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Пользовательское меню -->
+            <div class="flex items-center space-x-4">
+                                    <!-- Уведомления -->
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="relative text-gray-700 hover:text-blue-600">
+                            <i class="fas fa-bell text-xl"></i>
+                            <!-- Счетчик скрыт пока нет реальной системы уведомлений -->
+                        </button>
+                        
+                        <div x-show="open" @click.away="open = false" 
+                             x-transition:enter="transition ease-out duration-200"
+                             x-transition:enter-start="opacity-0 transform scale-95"
+                             x-transition:enter-end="opacity-100 transform scale-100"
+                             class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-lg py-2 z-50">
+                            <div class="px-4 py-2 border-b">
+                                <h3 class="text-sm font-semibold text-gray-900">Уведомления</h3>
+                            </div>
+                            <div class="max-h-64 overflow-y-auto">
+                                <div class="px-4 py-4 text-center">
+                                    <p class="text-sm text-gray-500">У вас пока нет новых уведомлений</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Профиль -->
+                    <div class="relative" x-data="{ open: false }">
+                        <button @click="open = !open" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                                                            <div class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-600"></i>
+                                </div>
+                                                        <span class="hidden md:block text-sm font-medium">Alice Johnson</span>
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </button>
+
+                        <div x-show="open" @click.away="open = false"
+                             x-transition:enter="transition ease-out duration-200"
+                             x-transition:enter-start="opacity-0 transform scale-95"
+                             x-transition:enter-end="opacity-100 transform scale-100"
+                             class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                                                            <a href="student/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
+                                </a>
+                                <a href="student/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-book mr-2"></i> Мои курсы
+                                </a>
+                                <a href="student/certificates" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-certificate mr-2"></i> Сертификаты
+                                </a>
+                            
+                            
+                            
+                            <hr class="my-2">
+                            <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-user mr-2"></i> Профиль
+                            </a>
+                            <a href="student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-shopping-cart mr-2"></i> Заказы
+                            </a>
+                            <hr class="my-2">
+                            <form action="logout" method="POST">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-sign-out-alt mr-2"></i> Выйти
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                            </div>
+
+            <!-- Мобильное меню -->
+            <div class="md:hidden">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 hover:text-blue-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div x-show="mobileMenuOpen" x-cloak
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0 transform scale-95"
+         x-transition:enter-end="opacity-100 transform scale-100"
+         class="md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                Главная
+            </a>
+            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                Курсы
+            </a>
+            
+                                                <a href="student/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                        Мои курсы
+                    </a>
+                                
+                                
+                                    </div>
+    </div>
+</nav>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('navigation', () => ({
+            mobileMenuOpen: false
+        }))
+    })
+</script>
+
+    <!-- Основной контент -->
+    <main class="flex-1">
+        <div class="max-w-7xl mx-auto px-4">
+                        
+                        
+                    </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8" x-data="{ showDeleteModal: false, courseIdToDelete: null, courseTitleToDelete: '' }">
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Мои курсы</h1>
+        <p class="text-gray-600 mt-2">Управляйте своими курсами и отслеживайте прогресс</p>
+    </div>
+
+    <!-- Фильтры -->
+    <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <div class="flex items-center space-x-4">
+            <div class="flex-1">
+                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    <option value="all">Все курсы</option>
+                    <option value="in_progress">В процессе</option>
+                    <option value="completed">Завершенные</option>
+                    <option value="not_started">Не начаты</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    <option value="all">Все категории</option>
+                    <option value="programming">Программирование</option>
+                    <option value="design">Дизайн</option>
+                    <option value="marketing">Маркетинг</option>
+                </select>
+            </div>
+            <div class="flex-1">
+                <input type="text" placeholder="Поиск курсов..." 
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+        </div>
+    </div>
+
+    <!-- Список курсов -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/mobile.png" 
+                             alt="Создание iOS приложений на Swift" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/11" 
+                           class="hover:text-blue-600">
+                            Создание iOS приложений на Swift
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Научитесь создавать нативные приложения для iPhone и iPad с нуля.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                86.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 86%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 110ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/11/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/11" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 11; courseTitleToDelete = 'Создание iOS приложений на Swift'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/marketing.png" 
+                             alt="SMM-специалист: продвижение в социальных сетях" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/12" 
+                           class="hover:text-blue-600">
+                            SMM-специалист: продвижение в социальных сетях
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Освойте профессию SMM-менеджера. Научитесь создавать контент, настраивать таргет и привлекать клиент...
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                97.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 97%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 60ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/12/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/12" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 12; courseTitleToDelete = 'SMM-специалист: продвижение в социальных сетях'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/devops.png" 
+                             alt="DevOps Инженер: CI/CD, Docker и Kubernetes" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-check mr-1"></i> Завершен
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/5" 
+                           class="hover:text-blue-600">
+                            DevOps Инженер: CI/CD, Docker и Kubernetes
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Станьте востребованным DevOps-инженером. Настройте процессы CI/CD, изучите Docker, Kubernetes и Ansi...
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                96.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 96%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 140ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/5/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Повторить
+                                                    </a>
+                        <a href="student/courses/5" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 5; courseTitleToDelete = 'DevOps Инженер: CI/CD, Docker и Kubernetes'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/mobile.png" 
+                             alt="Мобильная разработка на Flutter" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/6" 
+                           class="hover:text-blue-600">
+                            Мобильная разработка на Flutter
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Создавайте кроссплатформенные мобильные приложения для iOS и Android с помощью Flutter и Dart.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                30.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 30%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 90ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/6/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/6" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 6; courseTitleToDelete = 'Мобильная разработка на Flutter'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/devops.png" 
+                             alt="Архитектура микросервисов с Docker" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-check mr-1"></i> Завершен
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/10" 
+                           class="hover:text-blue-600">
+                            Архитектура микросервисов с Docker
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Научитесь проектировать масштабируемые системы, используя микросервисный подход и Docker.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                10.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 10%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 100ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/10/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Повторить
+                                                    </a>
+                        <a href="student/courses/10" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 10; courseTitleToDelete = 'Архитектура микросервисов с Docker'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/python.png" 
+                             alt="Профессия Data Scientist с нуля до PRO" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-check mr-1"></i> Завершен
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/3" 
+                           class="hover:text-blue-600">
+                            Профессия Data Scientist с нуля до PRO
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Научитесь анализировать данные, строить ML-модели и прогнозировать результаты с помощью Python.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                21.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 21%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 120ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/3/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Повторить
+                                                    </a>
+                        <a href="student/courses/3" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 3; courseTitleToDelete = 'Профессия Data Scientist с нуля до PRO'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/course2.jpg" 
+                             alt="UI/UX Design: от идеи до прототипа" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/2" 
+                           class="hover:text-blue-600">
+                            UI/UX Design: от идеи до прототипа
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Курс по созданию пользовательских интерфейсов и улучшению пользовательского опыта
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                94.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 94%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 15ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/2/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/2" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 2; courseTitleToDelete = 'UI/UX Design: от идеи до прототипа'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/react.png" 
+                             alt="Программирование на JavaScript для начинающих" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-check mr-1"></i> Завершен
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/9" 
+                           class="hover:text-blue-600">
+                            Программирование на JavaScript для начинающих
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Самый популярный язык программирования в мире. Начните свой путь в IT с JavaScript.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                5.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 5%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 50ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/9/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Повторить
+                                                    </a>
+                        <a href="student/courses/9" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 9; courseTitleToDelete = 'Программирование на JavaScript для начинающих'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/marketing.png" 
+                             alt="Digital Маркетинг и SEO продвижение" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/7" 
+                           class="hover:text-blue-600">
+                            Digital Маркетинг и SEO продвижение
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Комплексный курс по интернет-маркетингу: от настройки таргетированной рекламы до SEO-оптимизации.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                100.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 80ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/7/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/7" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 7; courseTitleToDelete = 'Digital Маркетинг и SEO продвижение'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/python.png" 
+                             alt="Fullstack разработчик на Python (Django + React)" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-check mr-1"></i> Завершен
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/8" 
+                           class="hover:text-blue-600">
+                            Fullstack разработчик на Python (Django + React)
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Освойте профессию fullstack-разработчика, изучив мощную связку Django (backend) и React (frontend).
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                21.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 21%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 130ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/8/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Повторить
+                                                    </a>
+                        <a href="student/courses/8" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 8; courseTitleToDelete = 'Fullstack разработчик на Python (Django + React)'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/react.png" 
+                             alt="Frontend-разработчик на React и Vue" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/4" 
+                           class="hover:text-blue-600">
+                            Frontend-разработчик на React и Vue
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Создавайте современные и интерактивные веб-приложения на самых популярных фреймворках.
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                18.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 18%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 100ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/4/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/4" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 4; courseTitleToDelete = 'Frontend-разработчик на React и Vue'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+                    <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+                <!-- Изображение курса -->
+                <div class="relative">
+                                            <img src="storage/courses/course1.jpg" 
+                             alt="Laravel 10 для начинающих" 
+                             class="w-full h-48 object-cover rounded-t-lg">
+                                        
+                    <!-- Статус -->
+                    <div class="absolute top-2 right-2">
+                                                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-play mr-1"></i> В процессе
+                            </span>
+                                            </div>
+                </div>
+                
+                <!-- Информация о курсе -->
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">
+                        <a href="student/courses/1" 
+                           class="hover:text-blue-600">
+                            Laravel 10 для начинающих
+                        </a>
+                    </h3>
+                    
+                    <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                        Полный курс по созданию веб-приложений на Laravel 10
+                    </p>
+                    
+                    <!-- Преподаватель -->
+                    <div class="flex items-center mb-3">
+                                                    <div class="w-6 h-6 rounded-full bg-gray-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-user text-gray-600 text-xs"></i>
+                            </div>
+                                                <span class="text-sm text-gray-600">John Smith</span>
+                    </div>
+                    
+                    <!-- Прогресс -->
+                    <div class="mb-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm text-gray-600">Прогресс</span>
+                            <span class="text-sm font-medium text-gray-900">
+                                53.0%
+                            </span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" 
+                                 style="width: 53%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Статистика -->
+                    <div class="flex items-center justify-between mb-3 text-sm text-gray-600">
+                        <span>
+                            <i class="fas fa-clock mr-1"></i> 20ч 0мин
+                        </span>
+                        <span>
+                            <i class="fas fa-book-open mr-1"></i> 0 уроков
+                        </span>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div class="flex space-x-2">
+                        <a href="student/courses/1/learn" 
+                           class="flex-1 bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                                            Продолжить
+                                                    </a>
+                        <a href="student/courses/1" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded text-sm hover:bg-gray-200 text-center">
+                            Подробнее
+                        </a>
+                        <button type="button" 
+                                @click="courseIdToDelete = 1; courseTitleToDelete = 'Laravel 10 для начинающих'; showDeleteModal = true"
+                                class="bg-red-50 text-red-600 px-3 py-2 rounded text-sm hover:bg-red-100 text-center"
+                                title="Удалить курс">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    <!-- Пагинация -->
+    
+    <!-- Модальное окно подтверждения удаления -->
+    <div x-show="showDeleteModal" style="display: none;" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div x-show="showDeleteModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" @click="showDeleteModal = false"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal panel -->
+            <div x-show="showDeleteModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                            <i class="fas fa-exclamation-triangle text-red-600"></i>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                Удаление курса
+                            </h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500">
+                                    Вы уверены, что хотите удалить курс <span class="font-bold text-gray-800" x-text="courseTitleToDelete"></span> из вашей библиотеки? 
+                                    <br><br>
+                                    <strong class="text-red-600">Внимание:</strong> При удалении курса прогресс обучения будет безвозвратно утерян, а курс будет удален без возврата денежных средств. Для повторного прохождения вам придется приобрести его заново.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <form method="POST" :action="`/student/courses/${courseIdToDelete}/unenroll`">
+                        <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                        <input type="hidden" name="_method" value="DELETE">                        <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                            Да, удалить курс
+                        </button>
+                    </form>
+                    <button type="button" @click="showDeleteModal = false" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Отмена
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-gray-800 text-white mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- О компании -->
+            <div>
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-graduation-cap text-blue-400 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">CourseHub</span>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    Современная платформа онлайн-обучения с лучшими курсами от опытных преподавателей.
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Курсы -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Курсы</h3>
+                <ul class="space-y-2">
+                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Бизнес</a></li>
+                </ul>
+            </div>
+
+            <!-- Поддержка -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Поддержка</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Помощь</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">FAQ</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Контакты</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Правила использования</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Политика конфиденциальности</a></li>
+                </ul>
+            </div>
+
+            <!-- Преподавателям -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">Преподавателям</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Стать преподавателем</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Как создать курс</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Правила платформы</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Доходы и выплаты</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2026 CourseHub. Все права защищены.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Условия использования</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Политика конфиденциальности</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="js/app.js"></script>
+    
+        
+            <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
+                <span style='font-weight: 600; font-size: 14px; opacity: 0.9;'>Режим эмуляции:</span>
+                <a href='guest.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>👤 Гость</a>
+                <a href='student.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #10B981; color: white;'>🎓 Студент</a>
+                <a href='instructor.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>👨‍🏫 Преподаватель</a>
+                <a href='admin.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>🛡️ Админ</a>
+                <div style='margin-left: auto; display: flex; gap: 10px;'>
+                    <button onclick='alert("В режиме эмуляции формы и некоторые страницы отключены. Используйте меню и навигацию.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
+                    <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть</a>
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.querySelectorAll('form').forEach(f => {
+                        f.onsubmit = (e) => {
+                            e.preventDefault();
+                            alert('В режиме демонстрации отправка форм отключена.');
+                        }
+                    });
+                });
+            </script>
+            </body>
+</html>

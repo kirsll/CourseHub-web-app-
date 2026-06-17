@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="http://localhost/css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -29,7 +29,7 @@
                 <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="http://localhost/courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
@@ -37,7 +37,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="http://localhost/search" method="GET" class="relative">
+                <form action="search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -48,10 +48,10 @@
 
             <!-- Пользовательское меню -->
             <div class="flex items-center space-x-4">
-                                    <a href="http://localhost/login" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                    <a href="login" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                         Войти
                     </a>
-                    <a href="http://localhost/register" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                    <a href="register" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
                         Регистрация
                     </a>
                             </div>
@@ -75,7 +75,7 @@
             <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="http://localhost/courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
@@ -111,7 +111,7 @@
             <div class="bg-white rounded-lg shadow p-6 sticky top-24">
                 <h2 class="text-lg font-semibold text-gray-900 mb-4">Фильтры</h2>
                 
-                <form action="http://localhost/courses" method="GET" class="space-y-6">
+                <form action="courses" method="GET" class="space-y-6">
                     <!-- Поиск -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Поиск</label>
@@ -228,7 +228,7 @@
                                 class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                             Применить
                         </button>
-                        <a href="http://localhost/courses" 
+                        <a href="courses" 
                            class="flex-1 bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200 text-center">
                             Сброс
                         </a>
@@ -246,7 +246,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/react.png" 
+                                                            <img src="storage/courses/react.png" 
                                      alt="Программирование на JavaScript для начинающих" 
                                      class="w-full h-full object-cover">
                                                         
@@ -274,7 +274,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/javascript-for-beginners" class="hover:text-blue-600">
+                                <a href="courses/javascript-for-beginners" class="hover:text-blue-600">
                                     Программирование на JavaScript для начинающих
                                 </a>
                             </h3>
@@ -334,11 +334,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/javascript-for-beginners" 
+                                    <a href="courses/javascript-for-beginners" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -349,7 +349,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/devops.png" 
+                                                            <img src="storage/courses/devops.png" 
                                      alt="DevOps Инженер: CI/CD, Docker и Kubernetes" 
                                      class="w-full h-full object-cover">
                                                         
@@ -380,7 +380,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/devops-engineer-master" class="hover:text-blue-600">
+                                <a href="courses/devops-engineer-master" class="hover:text-blue-600">
                                     DevOps Инженер: CI/CD, Docker и Kubernetes
                                 </a>
                             </h3>
@@ -440,11 +440,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/devops-engineer-master" 
+                                    <a href="courses/devops-engineer-master" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -455,7 +455,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/marketing.png" 
+                                                            <img src="storage/courses/marketing.png" 
                                      alt="SMM-специалист: продвижение в социальных сетях" 
                                      class="w-full h-full object-cover">
                                                         
@@ -486,7 +486,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/smm-specialist-pro" class="hover:text-blue-600">
+                                <a href="courses/smm-specialist-pro" class="hover:text-blue-600">
                                     SMM-специалист: продвижение в социальных сетях
                                 </a>
                             </h3>
@@ -546,11 +546,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/smm-specialist-pro" 
+                                    <a href="courses/smm-specialist-pro" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -561,7 +561,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/python.png" 
+                                                            <img src="storage/courses/python.png" 
                                      alt="Профессия Data Scientist с нуля до PRO" 
                                      class="w-full h-full object-cover">
                                                         
@@ -592,7 +592,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/data-science-pro" class="hover:text-blue-600">
+                                <a href="courses/data-science-pro" class="hover:text-blue-600">
                                     Профессия Data Scientist с нуля до PRO
                                 </a>
                             </h3>
@@ -652,11 +652,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/data-science-pro" 
+                                    <a href="courses/data-science-pro" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -667,7 +667,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/marketing.png" 
+                                                            <img src="storage/courses/marketing.png" 
                                      alt="Digital Маркетинг и SEO продвижение" 
                                      class="w-full h-full object-cover">
                                                         
@@ -698,7 +698,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/digital-marketing-seo" class="hover:text-blue-600">
+                                <a href="courses/digital-marketing-seo" class="hover:text-blue-600">
                                     Digital Маркетинг и SEO продвижение
                                 </a>
                             </h3>
@@ -758,11 +758,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/digital-marketing-seo" 
+                                    <a href="courses/digital-marketing-seo" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -773,7 +773,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/react.png" 
+                                                            <img src="storage/courses/react.png" 
                                      alt="Frontend-разработчик на React и Vue" 
                                      class="w-full h-full object-cover">
                                                         
@@ -804,7 +804,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/frontend-react-vue" class="hover:text-blue-600">
+                                <a href="courses/frontend-react-vue" class="hover:text-blue-600">
                                     Frontend-разработчик на React и Vue
                                 </a>
                             </h3>
@@ -864,11 +864,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/frontend-react-vue" 
+                                    <a href="courses/frontend-react-vue" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -879,7 +879,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/python.png" 
+                                                            <img src="storage/courses/python.png" 
                                      alt="Fullstack разработчик на Python (Django + React)" 
                                      class="w-full h-full object-cover">
                                                         
@@ -907,7 +907,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/fullstack-python-react" class="hover:text-blue-600">
+                                <a href="courses/fullstack-python-react" class="hover:text-blue-600">
                                     Fullstack разработчик на Python (Django + React)
                                 </a>
                             </h3>
@@ -967,11 +967,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/fullstack-python-react" 
+                                    <a href="courses/fullstack-python-react" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -982,7 +982,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/mobile.png" 
+                                                            <img src="storage/courses/mobile.png" 
                                      alt="Создание iOS приложений на Swift" 
                                      class="w-full h-full object-cover">
                                                         
@@ -1010,7 +1010,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/ios-swift-development" class="hover:text-blue-600">
+                                <a href="courses/ios-swift-development" class="hover:text-blue-600">
                                     Создание iOS приложений на Swift
                                 </a>
                             </h3>
@@ -1070,11 +1070,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/ios-swift-development" 
+                                    <a href="courses/ios-swift-development" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -1085,7 +1085,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/devops.png" 
+                                                            <img src="storage/courses/devops.png" 
                                      alt="Архитектура микросервисов с Docker" 
                                      class="w-full h-full object-cover">
                                                         
@@ -1116,7 +1116,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/microservices-docker-arch" class="hover:text-blue-600">
+                                <a href="courses/microservices-docker-arch" class="hover:text-blue-600">
                                     Архитектура микросервисов с Docker
                                 </a>
                             </h3>
@@ -1176,11 +1176,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/microservices-docker-arch" 
+                                    <a href="courses/microservices-docker-arch" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -1191,7 +1191,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/mobile.png" 
+                                                            <img src="storage/courses/mobile.png" 
                                      alt="Мобильная разработка на Flutter" 
                                      class="w-full h-full object-cover">
                                                         
@@ -1219,7 +1219,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/flutter-mobile-dev" class="hover:text-blue-600">
+                                <a href="courses/flutter-mobile-dev" class="hover:text-blue-600">
                                     Мобильная разработка на Flutter
                                 </a>
                             </h3>
@@ -1279,11 +1279,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/flutter-mobile-dev" 
+                                    <a href="courses/flutter-mobile-dev" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -1294,7 +1294,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/course1.jpg" 
+                                                            <img src="storage/courses/course1.jpg" 
                                      alt="Laravel 10 для начинающих" 
                                      class="w-full h-full object-cover">
                                                         
@@ -1325,7 +1325,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/laravel-10-for-beginners" class="hover:text-blue-600">
+                                <a href="courses/laravel-10-for-beginners" class="hover:text-blue-600">
                                     Laravel 10 для начинающих
                                 </a>
                             </h3>
@@ -1385,11 +1385,11 @@
                                         </div>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/laravel-10-for-beginners" 
+                                    <a href="courses/laravel-10-for-beginners" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -1400,7 +1400,7 @@
                                     <div class="course-card bg-white rounded-xl shadow-md transition flex flex-col h-full overflow-hidden border border-gray-100">
                         <!-- Изображение курса -->
                         <div class="relative img-wrapper h-48 flex-shrink-0">
-                                                            <img src="http://localhost/storage/courses/course2.jpg" 
+                                                            <img src="storage/courses/course2.jpg" 
                                      alt="UI/UX Design: от идеи до прототипа" 
                                      class="w-full h-full object-cover">
                                                         
@@ -1425,7 +1425,7 @@
                             
                             <!-- Название -->
                             <h3 class="font-semibold text-gray-900 mb-2 line-clamp-2">
-                                <a href="http://localhost/courses/ui-ux-design-from-idea-to-prototype" class="hover:text-blue-600">
+                                <a href="courses/ui-ux-design-from-idea-to-prototype" class="hover:text-blue-600">
                                     UI/UX Design: от идеи до прототипа
                                 </a>
                             </h3>
@@ -1480,11 +1480,11 @@
                                         </span>
                                                                     </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="http://localhost/courses/ui-ux-design-from-idea-to-prototype" 
+                                    <a href="courses/ui-ux-design-from-idea-to-prototype" 
                                        class="btn bg-gray-100 text-gray-700 px-3 py-2 rounded-lg text-sm hover:bg-gray-200 font-medium whitespace-nowrap">
                                         Подробнее
                                     </a>
-                                                                            <a href="http://localhost/login" 
+                                                                            <a href="login" 
                                            class="btn bg-blue-600 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-700 font-medium whitespace-nowrap">
                                             Войти
                                         </a>
@@ -1533,7 +1533,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="http://localhost/courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -1583,7 +1583,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="http://localhost/js/app.js"></script>
+    <script src="js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
@@ -1593,8 +1593,8 @@
                 <a href='instructor.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>👨‍🏫 Преподаватель</a>
                 <a href='admin.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>🛡️ Админ</a>
                 <div style='margin-left: auto; display: flex; gap: 10px;'>
-                    <button onclick='alert("В режиме эмуляции формы и функционал отключены. Используйте верхнее меню и переключатель ролей для навигации по интерфейсу.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
-                    <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть эмуляцию</a>
+                    <button onclick='alert("В режиме эмуляции формы и некоторые страницы отключены. Используйте меню и навигацию.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
+                    <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть</a>
                 </div>
             </div>
             <script>

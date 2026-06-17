@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ-панель - CourseHub</title>
+    <title>Пользователи - CourseHub</title>
     
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -162,140 +162,144 @@
                     </div>
 
         <div class="max-w-7xl mx-auto px-4 py-8">
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Админ-панель</h1>
-        <p class="text-gray-600 mt-2">Управление системой и статистика</p>
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Пользователи</h1>
+        <a href="admin/users/create" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+            Добавить пользователя
+        </a>
     </div>
 
-    <!-- Статистика -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-blue-100 rounded-full">
-                    <i class="fas fa-users text-blue-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Пользователи</p>
-                    <p class="text-2xl font-bold text-gray-900">3</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-green-100 rounded-full">
-                    <i class="fas fa-book text-green-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Курсы</p>
-                    <p class="text-2xl font-bold text-gray-900">12</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-purple-100 rounded-full">
-                    <i class="fas fa-graduation-cap text-purple-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Записи</p>
-                    <p class="text-2xl font-bold text-gray-900">12</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-yellow-100 rounded-full">
-                    <i class="fas fa-ruble-sign text-yellow-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Доходы</p>
-                    <p class="text-2xl font-bold text-gray-900">
-                        0 ₽
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="bg-white rounded-lg shadow overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Пользователь</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Роль</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Статус</th>
+                    <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Действия</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                                                    <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-500"></i>
+                                    </div>
+                                                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900">Alice Johnson</div>
+                                    <div class="text-sm text-gray-500">student@course.local</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <form action="admin/users/3/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                                                            <option value="1" >
+                                            Администратор
+                                        </option>
+                                                                            <option value="2" >
+                                            Преподаватель
+                                        </option>
+                                                                            <option value="3" selected>
+                                            Студент
+                                        </option>
+                                                                    </select>
+                                <button type="submit" class="text-sm bg-gray-800 text-white px-3 py-2 rounded-lg hover:bg-gray-900">Сохранить</button>
+                            </form>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
+                                                    </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                            <a href="admin/users/3/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="admin/users/3" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                                                    <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-500"></i>
+                                    </div>
+                                                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900">Admin User</div>
+                                    <div class="text-sm text-gray-500">admin@course.local</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <form action="admin/users/1/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                                                            <option value="1" selected>
+                                            Администратор
+                                        </option>
+                                                                            <option value="2" >
+                                            Преподаватель
+                                        </option>
+                                                                            <option value="3" >
+                                            Студент
+                                        </option>
+                                                                    </select>
+                                <button type="submit" class="text-sm bg-gray-800 text-white px-3 py-2 rounded-lg hover:bg-gray-900">Сохранить</button>
+                            </form>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
+                                                    </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                            <a href="admin/users/1/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="admin/users/1" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                                                    <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <i class="fas fa-user text-gray-500"></i>
+                                    </div>
+                                                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900">John Smith</div>
+                                    <div class="text-sm text-gray-500">instructor@course.local</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <form action="admin/users/2/role" method="POST" class="flex items-center gap-2">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <select name="role_id" class="border border-gray-300 rounded-lg px-3 py-2 text-sm">
+                                                                            <option value="1" >
+                                            Администратор
+                                        </option>
+                                                                            <option value="2" selected>
+                                            Преподаватель
+                                        </option>
+                                                                            <option value="3" >
+                                            Студент
+                                        </option>
+                                                                    </select>
+                                <button type="submit" class="text-sm bg-gray-800 text-white px-3 py-2 rounded-lg hover:bg-gray-900">Сохранить</button>
+                            </form>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                                                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">Активен</span>
+                                                    </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm">
+                            <a href="admin/users/2/edit" class="text-blue-600 hover:text-blue-800 mr-4">Редактировать</a>
+                            <form action="admin/users/2" method="POST" class="inline">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <input type="hidden" name="_method" value="DELETE">                                <button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Удалить пользователя?')">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                            </tbody>
+        </table>
     </div>
 
-    <!-- Быстрые действия -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Пользователи</h2>
-            <div class="space-y-3">
-                <a href="admin/users" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-users mr-2"></i> Все пользователи
-                </a>
-                <a href="admin/users/create" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-user-plus mr-2"></i> Добавить пользователя
-                </a>
-                <a href="admin/roles" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-user-shield mr-2"></i> Роли
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Курсы</h2>
-            <div class="space-y-3">
-                <a href="admin/courses" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-book mr-2"></i> Курсы
-                </a>
-                <a href="admin/categories" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-tags mr-2"></i> Категории
-                </a>
-                <a href="admin/reviews" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-star mr-2"></i> Отзывы
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Финансы</h2>
-            <div class="space-y-3">
-                <a href="admin/payments" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-ruble-sign mr-2"></i> Платежи
-                </a>
-                <a href="admin/orders" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-file-invoice mr-2"></i> Заказы
-                </a>
-                <a href="admin/reports/sales" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-chart-line mr-2"></i> Отчеты
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow px-6 py-4 mb-8">
-        <div class="flex flex-col items-center justify-center flex-wrap gap-3">
-            <div class="text-lg font-semibold text-gray-900">Система</div>
-            <div class="flex flex-wrap gap-8 text-sm">
-                <a href="admin/db" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-database mr-2"></i> Режим БД
-                </a>
-                <a href="admin/analytics" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-chart-pie mr-2"></i> Аналитика
-                </a>
-                <a href="admin/settings" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-cog mr-2"></i> Настройки
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Последние действия -->
-    <div class="bg-white rounded-lg shadow">
-        <div class="px-6 py-4 border-b border-gray-200">
-            <h2 class="text-lg font-semibold text-gray-900">Последние действия</h2>
-        </div>
-        <div class="p-6">
-            <div class="text-center py-8">
-                <i class="fas fa-history text-gray-300 text-4xl mb-4"></i>
-                <p class="text-gray-500">Система логирования действий находится в разработке</p>
-            </div>
-        </div>
+    <div class="mt-6">
+        
     </div>
 </div>
     </main>

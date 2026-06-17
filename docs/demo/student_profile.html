@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ-панель - CourseHub</title>
+    <title>Профиль - CourseHub</title>
     
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -33,11 +33,11 @@
                     Курсы
                 </a>
                 
-                                                        
-                                        
-                                            <a href="admin/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
-                            Админка
+                                                            <a href="student/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                            Мои курсы
                         </a>
+                                        
+                                        
                                                 </div>
 
             <!-- Поиск -->
@@ -82,7 +82,7 @@
                                                             <div class="h-8 w-8 rounded-full bg-gray-300 flex items-center justify-center">
                                     <i class="fas fa-user text-gray-600"></i>
                                 </div>
-                                                        <span class="hidden md:block text-sm font-medium">Admin User</span>
+                                                        <span class="hidden md:block text-sm font-medium">Alice Johnson</span>
                             <i class="fas fa-chevron-down text-xs"></i>
                         </button>
 
@@ -91,11 +91,17 @@
                              x-transition:enter-start="opacity-0 transform scale-95"
                              x-transition:enter-end="opacity-100 transform scale-100"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
-                            
-                            
-                                                            <a href="admin/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                    <i class="fas fa-cog mr-2"></i> Админка
+                                                            <a href="student/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
                                 </a>
+                                <a href="student/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-book mr-2"></i> Мои курсы
+                                </a>
+                                <a href="student/certificates" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    <i class="fas fa-certificate mr-2"></i> Сертификаты
+                                </a>
+                            
+                            
                             
                             <hr class="my-2">
                             <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
@@ -137,11 +143,11 @@
                 Курсы
             </a>
             
-                                            
-                                
-                                    <a href="admin/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
-                        Админка
+                                                <a href="student/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                        Мои курсы
                     </a>
+                                
+                                
                                     </div>
     </div>
 </nav>
@@ -163,137 +169,176 @@
 
         <div class="max-w-7xl mx-auto px-4 py-8">
     <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Админ-панель</h1>
-        <p class="text-gray-600 mt-2">Управление системой и статистика</p>
+        <h1 class="text-3xl font-bold text-gray-900">Профиль</h1>
+        <p class="text-gray-600 mt-2">Управляйте своей учетной записью</p>
     </div>
 
-    <!-- Статистика -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-blue-100 rounded-full">
-                    <i class="fas fa-users text-blue-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Пользователи</p>
-                    <p class="text-2xl font-bold text-gray-900">3</p>
-                </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Основная информация -->
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-6">Основная информация</h2>
+                
+                <form action="student/profile" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                    <input type="hidden" name="_method" value="PUT">                    
+                    <!-- Аватар -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Фото профиля</label>
+                        <div class="flex items-center space-x-4">
+                                                            <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center">
+                                    <i class="fas fa-user text-gray-600 text-2xl"></i>
+                                </div>
+                                                        <div>
+                                <input type="file" name="avatar" id="avatar" class="hidden" accept="image/*">
+                                <label for="avatar" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer">
+                                    <i class="fas fa-camera mr-2"></i>
+                                    Изменить фото
+                                </label>
+                                <p class="text-xs text-gray-500 mt-1">JPG, PNG или GIF. Макс. 2MB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Имя и фамилия -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">
+                                Имя
+                            </label>
+                            <input type="text" id="first_name" name="first_name" value="Alice" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                                    </div>
+                        <div>
+                            <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">
+                                Фамилия
+                            </label>
+                            <input type="text" id="last_name" name="last_name" value="Johnson" required
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                                    </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Email
+                        </label>
+                        <input type="email" id="email" name="email" value="student@course.local" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                            </div>
+
+                    <!-- Телефон -->
+                    <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                            Телефон
+                        </label>
+                        <input type="tel" id="phone" name="phone" value="+7 (999) 345-67-89"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                            </div>
+
+                    <!-- О себе -->
+                    <div class="mb-6">
+                        <label for="bio" class="block text-sm font-medium text-gray-700 mb-2">
+                            О себе
+                        </label>
+                        <textarea id="bio" name="bio" rows="4"
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                  placeholder="Расскажите о себе...">Студент, изучаю веб-разработку и программирование</textarea>
+                                            </div>
+
+                    <!-- Социальные сети -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Социальные сети
+                        </label>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <input type="url" name="social_links[github]" value=""
+                                       placeholder="GitHub" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <input type="url" name="social_links[linkedin]" value=""
+                                       placeholder="LinkedIn" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <input type="url" name="social_links[twitter]" value=""
+                                       placeholder="Twitter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <input type="url" name="social_links[website]" value=""
+                                       placeholder="Веб-сайт" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Кнопки -->
+                    <div class="flex space-x-4">
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                            Сохранить изменения
+                        </button>
+                        <a href="student/dashboard" class="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-200">
+                            Отмена
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-green-100 rounded-full">
-                    <i class="fas fa-book text-green-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Курсы</p>
-                    <p class="text-2xl font-bold text-gray-900">12</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-purple-100 rounded-full">
-                    <i class="fas fa-graduation-cap text-purple-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Записи</p>
-                    <p class="text-2xl font-bold text-gray-900">12</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <div class="flex items-center">
-                <div class="p-3 bg-yellow-100 rounded-full">
-                    <i class="fas fa-ruble-sign text-yellow-600 text-xl"></i>
-                </div>
-                <div class="ml-4">
-                    <p class="text-sm text-gray-600">Доходы</p>
-                    <p class="text-2xl font-bold text-gray-900">
-                        0 ₽
-                    </p>
+        <!-- Боковая панель -->
+        <div class="lg:col-span-1">
+            <!-- Статистика -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Статистика</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Курсов:</span>
+                        <span class="font-medium">12</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Завершено:</span>
+                        <span class="font-medium">5</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Сертификатов:</span>
+                        <span class="font-medium">5</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Часов обучения:</span>
+                        <span class="font-medium">0</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Быстрые действия -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Пользователи</h2>
-            <div class="space-y-3">
-                <a href="admin/users" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-users mr-2"></i> Все пользователи
-                </a>
-                <a href="admin/users/create" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-user-plus mr-2"></i> Добавить пользователя
-                </a>
-                <a href="admin/roles" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-user-shield mr-2"></i> Роли
-                </a>
+            <!-- Роль -->
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Роль</h3>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                                    <i class="fas fa-user-graduate text-blue-600"></i>
+                                            </div>
+                    <div>
+                        <div class="font-medium text-gray-900">Студент</div>
+                        <div class="text-sm text-gray-600">student</div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Курсы</h2>
-            <div class="space-y-3">
-                <a href="admin/courses" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-book mr-2"></i> Курсы
-                </a>
-                <a href="admin/categories" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-tags mr-2"></i> Категории
-                </a>
-                <a href="admin/reviews" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-star mr-2"></i> Отзывы
-                </a>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow p-6">
-            <h2 class="text-lg font-semibold text-gray-900 mb-4">Финансы</h2>
-            <div class="space-y-3">
-                <a href="admin/payments" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-ruble-sign mr-2"></i> Платежи
-                </a>
-                <a href="admin/orders" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-file-invoice mr-2"></i> Заказы
-                </a>
-                <a href="admin/reports/sales" class="block text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-chart-line mr-2"></i> Отчеты
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-white rounded-lg shadow px-6 py-4 mb-8">
-        <div class="flex flex-col items-center justify-center flex-wrap gap-3">
-            <div class="text-lg font-semibold text-gray-900">Система</div>
-            <div class="flex flex-wrap gap-8 text-sm">
-                <a href="admin/db" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-database mr-2"></i> Режим БД
-                </a>
-                <a href="admin/analytics" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-chart-pie mr-2"></i> Аналитика
-                </a>
-                <a href="admin/settings" class="text-blue-600 hover:text-blue-800">
-                    <i class="fas fa-cog mr-2"></i> Настройки
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Последние действия -->
-    <div class="bg-white rounded-lg shadow">
-        <div class="px-6 py-4 border-b border-gray-200">
-            <h2 class="text-lg font-semibold text-gray-900">Последние действия</h2>
-        </div>
-        <div class="p-6">
-            <div class="text-center py-8">
-                <i class="fas fa-history text-gray-300 text-4xl mb-4"></i>
-                <p class="text-gray-500">Система логирования действий находится в разработке</p>
+            <!-- Активность -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Активность</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Дата регистрации:</span>
+                        <span class="font-medium">17.06.2026</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Последний вход:</span>
+                        <span class="font-medium">17.06.2026 13:11</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Баланс:</span>
+                        <span class="font-medium">5 000.00 ₽</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -389,9 +434,9 @@
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
                 <span style='font-weight: 600; font-size: 14px; opacity: 0.9;'>Режим эмуляции:</span>
                 <a href='guest.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>👤 Гость</a>
-                <a href='student.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>🎓 Студент</a>
+                <a href='student.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #10B981; color: white;'>🎓 Студент</a>
                 <a href='instructor.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>👨‍🏫 Преподаватель</a>
-                <a href='admin.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #EF4444; color: white;'>🛡️ Админ</a>
+                <a href='admin.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>🛡️ Админ</a>
                 <div style='margin-left: auto; display: flex; gap: 10px;'>
                     <button onclick='alert("В режиме эмуляции формы и некоторые страницы отключены. Используйте меню и навигацию.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
                     <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть</a>

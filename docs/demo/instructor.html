@@ -8,7 +8,7 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="http://localhost/css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     
     </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -29,12 +29,12 @@
                 <a href="http://localhost" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Главная
                 </a>
-                <a href="http://localhost/courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                <a href="courses" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                     Курсы
                 </a>
                 
                                                         
-                                            <a href="http://localhost/instructor/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
+                                            <a href="instructor/dashboard" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">
                             Преподавателю
                         </a>
                                         
@@ -42,7 +42,7 @@
 
             <!-- Поиск -->
             <div class="hidden md:flex items-center">
-                <form action="http://localhost/search" method="GET" class="relative">
+                <form action="search" method="GET" class="relative">
                     <input type="text" name="q" placeholder="Поиск курсов..." 
                            class="w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
                     <button type="submit" class="absolute right-2 top-2 text-gray-500 hover:text-blue-600">
@@ -92,27 +92,27 @@
                              x-transition:enter-end="opacity-100 transform scale-100"
                              class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
                             
-                                                            <a href="http://localhost/instructor/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                                            <a href="instructor/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-tachometer-alt mr-2"></i> Дашборд
                                 </a>
-                                <a href="http://localhost/instructor/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="instructor/courses" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-book mr-2"></i> Мои курсы
                                 </a>
-                                <a href="http://localhost/instructor/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <a href="instructor/analytics" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-chart-line mr-2"></i> Аналитика
                                 </a>
                             
                             
                             <hr class="my-2">
-                            <a href="http://localhost/student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="student/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-user mr-2"></i> Профиль
                             </a>
-                            <a href="http://localhost/student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <a href="student/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 <i class="fas fa-shopping-cart mr-2"></i> Заказы
                             </a>
                             <hr class="my-2">
-                            <form action="http://localhost/logout" method="POST">
-                                <input type="hidden" name="_token" value="zJaVErdZMgmgtmG4iNBCaN5ow7N8QmNlAYZFvcXt" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <form action="logout" method="POST">
+                                <input type="hidden" name="_token" value="r8Fjs7CZ5wx4DBnvmeUT5o6svZj9C6Ow3y39wudv" autocomplete="off">                                <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <i class="fas fa-sign-out-alt mr-2"></i> Выйти
                                 </button>
                             </form>
@@ -139,12 +139,12 @@
             <a href="http://localhost" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Главная
             </a>
-            <a href="http://localhost/courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            <a href="courses" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                 Курсы
             </a>
             
                                             
-                                    <a href="http://localhost/instructor/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                                    <a href="instructor/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
                         Преподавателю
                     </a>
                                 
@@ -232,7 +232,7 @@
             <div class="bg-white rounded-lg shadow">
                 <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-semibold text-gray-900">Мои курсы</h2>
-                    <a href="http://localhost/instructor/courses" 
+                    <a href="instructor/courses" 
                        class="text-blue-600 hover:text-blue-800 text-sm">
                         Все курсы →
                     </a>
@@ -240,12 +240,12 @@
                 <div class="p-6">
                                             <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
-                                                                    <img src="http://localhost/storage/courses/course1.jpg" 
+                                                                    <img src="storage/courses/course1.jpg" 
                                          alt="Laravel 10 для начинающих" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                                                 <div>
                                     <h3 class="font-semibold text-gray-900">
-                                        <a href="http://localhost/instructor/courses/1/edit" 
+                                        <a href="instructor/courses/1/edit" 
                                            class="hover:text-blue-600">
                                             Laravel 10 для начинающих
                                         </a>
@@ -269,11 +269,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-2">
-                                <a href="http://localhost/instructor/courses/1/edit" 
+                                <a href="instructor/courses/1/edit" 
                                    class="text-blue-600 hover:text-blue-800">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="http://localhost/instructor/courses/1/students" 
+                                <a href="instructor/courses/1/students" 
                                    class="text-purple-600 hover:text-purple-800">
                                     <i class="fas fa-users"></i>
                                 </a>
@@ -281,12 +281,12 @@
                         </div>
                                             <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
-                                                                    <img src="http://localhost/storage/courses/course2.jpg" 
+                                                                    <img src="storage/courses/course2.jpg" 
                                          alt="UI/UX Design: от идеи до прототипа" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                                                 <div>
                                     <h3 class="font-semibold text-gray-900">
-                                        <a href="http://localhost/instructor/courses/2/edit" 
+                                        <a href="instructor/courses/2/edit" 
                                            class="hover:text-blue-600">
                                             UI/UX Design: от идеи до прототипа
                                         </a>
@@ -310,11 +310,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-2">
-                                <a href="http://localhost/instructor/courses/2/edit" 
+                                <a href="instructor/courses/2/edit" 
                                    class="text-blue-600 hover:text-blue-800">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="http://localhost/instructor/courses/2/students" 
+                                <a href="instructor/courses/2/students" 
                                    class="text-purple-600 hover:text-purple-800">
                                     <i class="fas fa-users"></i>
                                 </a>
@@ -322,12 +322,12 @@
                         </div>
                                             <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
-                                                                    <img src="http://localhost/storage/courses/python.png" 
+                                                                    <img src="storage/courses/python.png" 
                                          alt="Профессия Data Scientist с нуля до PRO" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                                                 <div>
                                     <h3 class="font-semibold text-gray-900">
-                                        <a href="http://localhost/instructor/courses/3/edit" 
+                                        <a href="instructor/courses/3/edit" 
                                            class="hover:text-blue-600">
                                             Профессия Data Scientist с нуля до PRO
                                         </a>
@@ -351,11 +351,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-2">
-                                <a href="http://localhost/instructor/courses/3/edit" 
+                                <a href="instructor/courses/3/edit" 
                                    class="text-blue-600 hover:text-blue-800">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="http://localhost/instructor/courses/3/students" 
+                                <a href="instructor/courses/3/students" 
                                    class="text-purple-600 hover:text-purple-800">
                                     <i class="fas fa-users"></i>
                                 </a>
@@ -363,12 +363,12 @@
                         </div>
                                             <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
-                                                                    <img src="http://localhost/storage/courses/react.png" 
+                                                                    <img src="storage/courses/react.png" 
                                          alt="Frontend-разработчик на React и Vue" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                                                 <div>
                                     <h3 class="font-semibold text-gray-900">
-                                        <a href="http://localhost/instructor/courses/4/edit" 
+                                        <a href="instructor/courses/4/edit" 
                                            class="hover:text-blue-600">
                                             Frontend-разработчик на React и Vue
                                         </a>
@@ -392,11 +392,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-2">
-                                <a href="http://localhost/instructor/courses/4/edit" 
+                                <a href="instructor/courses/4/edit" 
                                    class="text-blue-600 hover:text-blue-800">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="http://localhost/instructor/courses/4/students" 
+                                <a href="instructor/courses/4/students" 
                                    class="text-purple-600 hover:text-purple-800">
                                     <i class="fas fa-users"></i>
                                 </a>
@@ -404,12 +404,12 @@
                         </div>
                                             <div class="flex items-center justify-between mb-6 pb-6 border-b border-gray-100 last:border-0">
                             <div class="flex items-center">
-                                                                    <img src="http://localhost/storage/courses/react.png" 
+                                                                    <img src="storage/courses/react.png" 
                                          alt="Программирование на JavaScript для начинающих" 
                                          class="w-16 h-16 rounded-lg mr-4">
                                                                 <div>
                                     <h3 class="font-semibold text-gray-900">
-                                        <a href="http://localhost/instructor/courses/9/edit" 
+                                        <a href="instructor/courses/9/edit" 
                                            class="hover:text-blue-600">
                                             Программирование на JavaScript для начинающих
                                         </a>
@@ -433,11 +433,11 @@
                                 </div>
                             </div>
                             <div class="flex space-x-2">
-                                <a href="http://localhost/instructor/courses/9/edit" 
+                                <a href="instructor/courses/9/edit" 
                                    class="text-blue-600 hover:text-blue-800">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="http://localhost/instructor/courses/9/students" 
+                                <a href="instructor/courses/9/students" 
                                    class="text-purple-600 hover:text-purple-800">
                                     <i class="fas fa-users"></i>
                                 </a>
@@ -450,7 +450,7 @@
             <div class="bg-white rounded-lg shadow mt-8">
                 <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                     <h2 class="text-lg font-semibold text-gray-900">Доходы за месяц</h2>
-                    <a href="http://localhost/instructor/earnings" 
+                    <a href="instructor/earnings" 
                        class="text-blue-600 hover:text-blue-800 text-sm">
                         Детально →
                     </a>
@@ -505,15 +505,15 @@
                 </div>
                 <div class="p-6">
                     <div class="space-y-3">
-                        <a href="http://localhost/instructor/courses/create" 
+                        <a href="instructor/courses/create" 
                            class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center">
                             <i class="fas fa-plus mr-2"></i> Создать курс
                         </a>
-                        <a href="http://localhost/instructor/analytics" 
+                        <a href="instructor/analytics" 
                            class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 flex items-center justify-center">
                             <i class="fas fa-chart-line mr-2"></i> Аналитика
                         </a>
-                        <a href="http://localhost/instructor/earnings" 
+                        <a href="instructor/earnings" 
                            class="w-full bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 flex items-center justify-center">
                             <i class="fas fa-ruble-sign mr-2"></i> Доходы
                         </a>
@@ -539,7 +539,7 @@
                                     UI/UX Design: от идеи до прототипа
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    5 hours ago
+                                    6 hours ago
                                 </p>
                             </div>
                         </div>
@@ -555,7 +555,7 @@
                                     Профессия Data Scientist с нуля до PRO
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    5 hours ago
+                                    6 hours ago
                                 </p>
                             </div>
                         </div>
@@ -571,7 +571,7 @@
                                     Frontend-разработчик на React и Vue
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    5 hours ago
+                                    6 hours ago
                                 </p>
                             </div>
                         </div>
@@ -587,7 +587,7 @@
                                     Программирование на JavaScript для начинающих
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    5 hours ago
+                                    6 hours ago
                                 </p>
                             </div>
                         </div>
@@ -603,7 +603,7 @@
                                     Laravel 10 для начинающих
                                 </p>
                                 <p class="text-xs text-gray-500 mt-1">
-                                    5 hours ago
+                                    6 hours ago
                                 </p>
                             </div>
                         </div>
@@ -678,7 +678,7 @@
             <div>
                 <h3 class="text-lg font-semibold mb-4">Курсы</h3>
                 <ul class="space-y-2">
-                    <li><a href="http://localhost/courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
+                    <li><a href="courses" class="text-gray-400 hover:text-white text-sm">Все курсы</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Программирование</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Дизайн</a></li>
                     <li><a href="#" class="text-gray-400 hover:text-white text-sm">Маркетинг</a></li>
@@ -728,7 +728,7 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="http://localhost/js/app.js"></script>
+    <script src="js/app.js"></script>
     
         
             <div style='position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #334155; padding: 15px 20px; z-index: 999999; display: flex; justify-content: center; align-items: center; gap: 20px; color: white; font-family: Inter, sans-serif; box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.5); flex-wrap: wrap;'>
@@ -738,8 +738,8 @@
                 <a href='instructor.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #8B5CF6; color: white;'>👨‍🏫 Преподаватель</a>
                 <a href='admin.html' style='padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; transition: 0.2s; background: #1E293B; color: #94A3B8; border: 1px solid #334155;'>🛡️ Админ</a>
                 <div style='margin-left: auto; display: flex; gap: 10px;'>
-                    <button onclick='alert("В режиме эмуляции формы и функционал отключены. Используйте верхнее меню и переключатель ролей для навигации по интерфейсу.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
-                    <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть эмуляцию</a>
+                    <button onclick='alert("В режиме эмуляции формы и некоторые страницы отключены. Используйте меню и навигацию.")' style='background: transparent; border: none; color: #64748B; cursor: pointer; font-size: 12px; text-decoration: underline;'>Инфо</button>
+                    <a href='../index.html' style='padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 500; background: transparent; color: #94A3B8; text-decoration: none; border: 1px solid #334155;'>Закрыть</a>
                 </div>
             </div>
             <script>
