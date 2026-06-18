@@ -1,4 +1,4 @@
-<h1 align="center">CourseHub 🎓</h1>
+<h1 align="center">CourseHub</h1>
 
 <p align="center">
   <strong>Современная платформа для онлайн-обучения с поддержкой десктопных клиентов.</strong>
@@ -56,7 +56,8 @@
    cd CourseHub-web-app-
    ```
 2. **Восстановите зависимости**: 
-   Распакуйте содержимое архива `CourseHub_Dependencies.zip` прямо в корневую папку (это восстановит `node_modules`, `vendor` и `.env` файл).
+   Распакуйте содержимое архива `CourseHub_Dependencies.zip`(у автора) прямо в корневую папку (это восстановит `node_modules`, `vendor` и `.env` файл).
+   Либо скачайте все зависимости через командную строку и настройте сервер postgresql самостоятельно.
 3. **Запустите локальный сервер**:
    ```bash
    php artisan serve
